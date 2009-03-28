@@ -889,21 +889,21 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
 		byte autostartFlag = buf[start + 1];
 		autostart = (autostartFlag == '1' || autostartFlag == '3');
 		directStream = (autostartFlag == '2' || autostartFlag == '3' || autostartFlag == '4');		
-		format = buf[start + 2];
-		pcmSampleSize = buf[start + 3] - '0';
-		pcmSampleRate = buf[start + 4] - '0';
-		pcmChannels = buf[start + 5] - '0';
-		pcmEndian = "0".equals(new String(buf, start + 6, 1));
-		autostartThreshold = (buf[start + 7] & 0xFF) * 1024;
 		String spdifEnable = new String(buf, start + 8, 1);
-		transitionPeriod = buf[start + 9];
-		transitionType = buf[start + 10];
-		loopSong = (buf[11] == '1');
+		transitionPeriod =   buf[start + 9];
+		transitionType   =   buf[start + 10];
+		loopSong         =  (buf[start + 11] == '1');
 		// buf[start + 12]; reserved
 		
 		switch (cmd) {
 			case 's':
-				replayGain = Protocol.unpackFixedPoint(buf, start + 14);
+				format             = buf[start + 2];
+				pcmSampleSize      = buf[start + 3] - '0';
+				pcmSampleRate      = buf[start + 4] - '0';
+				pcmChannels        = buf[start + 5] - '0';
+				pcmEndian          = "0".equals(new String(buf, start + 6, 1));
+				autostartThreshold = (buf[start + 7] & 0xFF) * 1024;
+				replayGain         = Protocol.unpackFixedPoint(buf, start + 14);
 				if (replayGain == 0.0f)
 					replayGain = 1.0f; // Use 0.00dB with no replay gain
 				break;
