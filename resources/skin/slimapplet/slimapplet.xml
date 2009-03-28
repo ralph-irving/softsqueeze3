@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!DOCTYPE SoftSqueezeSkin SYSTEM "../skin.dtd">
+
+<SoftSqueezeSkin>
+	<!-- Slim skin for SoftSqueeze -->
+	<!-- with permission from Slim Devices -->
+	<!-- Graham Scott g@hindsight.it 2004   -->
+	<SkinInfo>
+		<Version>2.3g</Version>
+	</SkinInfo>
+	
+	<Config>
+		<Select id="slimdevices.display" label="Display Style">
+		  <Option value="slimdevices.vfd" default="true">Squeezebox (small)</Option>
+		  <Option value="slimdevices.vfd2">Squeezebox (large)</Option>
+		</Select>
+
+		<Select id="slimdevices.remote" label="Remote Style">
+		  <Option value="slimdevices.hremote">Horizontal Remote</Option>
+		  <Option value="slimdevices.vremote" default="true">Vertical Remote</Option>
+		</Select>
+	</Config>
+	
+	
+	<Include file="common.xml" />
+	
+	
+	<Applet
+		id="slimdevices-applet.main"
+		configid="slimdevices-applet.vfd"
+		name="SoftSqueeze"
+		visible="true"
+		x="147" y="100"
+		icon="/icon.png">
+		
+		<Group id="slimapplet.vfd" />
+	</Applet>
+		
+</SoftSqueezeSkin>
+

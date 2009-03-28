@@ -1,0 +1,97 @@
+<?xml version="1.0" ?>
+<!DOCTYPE SoftSqueezeSkin SYSTEM "../skin.dtd">
+
+<SoftSqueezeSkin>
+	<!-- Slim skin for SoftSqueeze -->
+	<!-- with permission from Slim Devices -->
+	<!-- Graham Scott g@hindsight.it 2004   -->
+	<SkinInfo>
+		<Version>2.3g</Version>
+	</SkinInfo>
+	
+	<Config>
+		<Select id="excession.display" label="Display Style">
+		  <Option value="smallvfd" default="true">Excession (small)</Option>
+		  <Option value="largevfd">Excession (large)</Option>
+		  <Option value="thinvfd">Excession (thin)</Option>
+		</Select>
+	</Config>
+
+	
+	<Include file="common.xml" />
+	
+	
+	<If test="${excession.display}=smallvfd">
+		<Window 
+			id="excession.main"
+			configid="excession.smallvfd" 
+			name="SoftSqueeze" 
+			visible="true" 
+			x="100" y="100" 
+			icon="/icon.png">
+		
+			<Group id="excession.smallvfd" />
+		</Window>
+
+		<Window 
+			id="excession.remote" 
+			configid="excession.smallvfd.remote" 
+			name="SoftSqueeze" 
+			visible="false" 
+			owner="excession.main" 
+			x="100" y="181">
+		
+			<Group id="excession.playbuttons" />
+		</Window>
+	</If>
+	
+	<If test="${excession.display}=largevfd">
+		<Window 
+			id="excession.main" 
+			configid="excession.largevfd" 
+			name="SoftSqueeze" 
+			visible="true" 
+			x="100" y="100" 
+			icon="/icon.png">
+		
+			<Group id="excession.largevfd" />
+		</Window>
+
+		<Window 
+			id="excession.remote" 
+			configid="excession.largevfd.remote" 
+			name="SoftSqueeze" 
+			visible="false" 
+			owner="excession.main" 
+			x="100" y="216">
+		
+			<Group id="excession.playbuttons2" />
+		</Window>
+	</If>
+
+	<If test="${excession.display}=thinvfd">	
+		<Window 
+			id="excession.main" 
+			configid="excession.thinvfd" 
+			name="SoftSqueeze" 
+			visible="true" 
+			x="100" y="100" 
+			icon="/icon.png">
+		
+			<Group id="excession.thinvfd" />
+		</Window>
+
+		<Window 
+			id="excession.remote" 
+			configid="excession.thinvfd.remote" 
+			name="SoftSqueeze" 
+			visible="false" 
+			owner="excession.main" 
+			x="100" y="141">
+		
+			<Group id="excession.playbuttons" />
+		</Window>
+	</If>
+
+</SoftSqueezeSkin>
+

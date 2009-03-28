@@ -1,0 +1,508 @@
+<?xml version="1.0" ?>
+<!DOCTYPE SoftSqueezeSkin SYSTEM "../skin.dtd">
+
+<SoftSqueezeSkin>
+	<!-- Slim skin for SoftSqueeze -->
+	<!-- with permission from Slim Devices -->
+	<!-- Graham Scott g@hindsight.it 2004   -->
+	<SkinInfo>
+		<Version>2.3g</Version>
+	</SkinInfo>
+	
+	<Config>
+		<Select id="slimdevices.display" label="Display Style">
+		  <Option value="slimdevices.transporter" default="true">Transporter</Option>
+		  <Option value="slimdevices.sb3small">Squeezebox 3 (small)</Option>
+		  <Option value="slimdevices.sb3large">Squeezebox 3 (large)</Option>
+		  <Option value="slimdevices.boomsmall">Boom (small)</Option>
+		  <Option value="slimdevices.boomlarge">Boom (large)</Option>
+		  <Option value="slimdevices.vfd" default="true">Squeezebox (small)</Option>
+		  <Option value="slimdevices.vfd2">Squeezebox (large)</Option>
+		</Select>
+
+		<Select id="slimdevices.remote" label="Remote Style">
+		  <Option value="slimdevices.newremote" default="true">New Remote</Option>
+		  <Option value="slimdevices.boomremote">Mini Remote</Option>
+		  <Option value="slimdevices.hremote">Horizontal Remote</Option>
+		  <Option value="slimdevices.vremote" default="true">Vertical Remote</Option>
+		</Select>
+	</Config>
+	
+	
+	<Include file="common.xml" />
+	
+	<Window 
+		id="slimdevices.fullscreen" 
+		name="SoftSqueeze" 
+		visible="false" 
+		x="167" y="100" 
+		width="800" height="600" 
+		fullscreen="true" >
+		
+		<Group id="slimdevices.fullgroup" />
+	</Window>
+	
+	<If test="${slimdevices.display}=slimdevices.vfd">			
+		<Window 
+			id="slimdevices.main"
+			configid="slimdevices.vfd"
+			name="SoftSqueeze"
+			visible="true"
+			x="147" y="100"
+			icon="/icon.png">
+		
+			<Group id="slimdevices.vfd" />
+		</Window>
+		
+		<If test="${slimdevices.remote}=slimdevices.vremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.vfd.vremote"
+				name="SoftSqueeze"
+				visible="true"
+				owner="slimdevices.main"
+				x="615" y="100">
+		
+				<Group id="slimdevices.vplaybuttons" />
+			</Window>
+		</If>
+	
+		<If test="${slimdevices.remote}=slimdevices.hremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.vfd.hremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="100" y="208">
+		
+				<Group id="slimdevices.hplaybuttons" />
+			</Window>
+		</If>
+		
+		<If test="${slimdevices.remote}=slimdevices.newremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3small.newremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				windowmask="/newremote.png"
+				x="615" y="100">
+		
+				<Group id="slimdevices.newremote" />
+			</Window>
+		</If>			
+	</If>
+	
+	<If test="${slimdevices.display}=slimdevices.vfd2">	
+		<Window 
+			id="slimdevices.main"
+			configid="slimdevices.vfd2"
+			name="SoftSqueeze"
+			visible="true"
+			x="100" y="100"
+			icon="/icon.png">
+		
+			<Group id="slimdevices.vfd2" />
+		</Window>
+
+		<If test="${slimdevices.remote}=slimdevices.vremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.vfd2.remote"
+				name="SoftSqueeze"
+				visible="true"
+				owner="slimdevices.main"
+				x="850" y="100">
+		
+				<Group id="slimdevices.vplaybuttons" />
+			</Window>
+		</If>
+	
+		<If test="${slimdevices.remote}=slimdevices.hremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.vfd2.hremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="221" y="229">
+		
+				<Group id="slimdevices.hplaybuttons" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.newremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3small.newremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				windowmask="/newremote.png"
+				x="850" y="100">
+		
+				<Group id="slimdevices.newremote" />
+			</Window>
+		</If>
+
+		<If test="${slimdevices.remote}=slimdevices.boomremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3small.boomremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="1414" y="100">
+		
+				<Group id="slimdevices.boomremote" />
+			</Window>
+		</If>		
+	</If>
+	
+	<If test="${slimdevices.display}=slimdevices.sb3small">	
+		<Window 
+			id="slimdevices.main"
+			configid="slimdevices.sb3small"
+			name="SoftSqueeze"
+			visible="true"
+			x="100" y="100"
+			icon="/icon.png"
+			windowmask="/squeezebox3.png">
+		
+			<Group id="slimdevices.sb3small" />
+		</Window>
+
+		<If test="${slimdevices.remote}=slimdevices.vremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3small.remote"			
+				name="SoftSqueeze"
+				visible="true"
+				owner="slimdevices.main"
+				x="511" y="100">
+		
+				<Group id="slimdevices.vplaybuttons" />
+			</Window>
+		</If>
+	
+		<If test="${slimdevices.remote}=slimdevices.hremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3small.hremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="48" y="324">
+		
+				<Group id="slimdevices.hplaybuttons" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.newremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3small.newremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				windowmask="/newremote.png"
+				x="511" y="100">
+		
+				<Group id="slimdevices.newremote" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.boomremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3small.boomremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="511" y="100">
+		
+				<Group id="slimdevices.boomremote" />
+			</Window>
+		</If>		
+	</If>
+	
+	<If test="${slimdevices.display}=slimdevices.sb3large">	
+		<Window 
+			id="slimdevices.main"
+			configid="slimdevices.sb3large"
+			name="SoftSqueeze"
+			visible="true"
+			x="100" y="100"
+			icon="/icon.png"
+			windowmask="/squeezebox3_large.png">
+		
+			<Group id="slimdevices.sb3large" />
+		</Window>
+
+		<If test="${slimdevices.remote}=slimdevices.vremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3large.remote"
+				name="SoftSqueeze"
+				visible="true"
+				owner="slimdevices.main"
+				x="903" y="100">
+		
+				<Group id="slimdevices.vplaybuttons" />
+			</Window>
+		</If>
+	
+		<If test="${slimdevices.remote}=slimdevices.hremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3large.hremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="224" y="516">
+		
+				<Group id="slimdevices.hplaybuttons" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.newremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3large.newremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				windowmask="/newremote.png"
+				x="903" y="100">
+		
+				<Group id="slimdevices.newremote" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.boomremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.sb3large.boomremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="903" y="100">
+		
+				<Group id="slimdevices.boomremote" />
+			</Window>
+		</If>		
+	</If>
+	
+	<If test="${slimdevices.display}=slimdevices.transporter">	
+		<Set name="deviceid" value="6" />
+	
+		<Window 
+			id="slimdevices.main"
+			configid="slimdevices.transporter"
+			deviceid="6"
+			name="SoftSqueeze"
+			visible="true"
+			x="100" y="100"
+			icon="/icon.png"
+			windowmask="/transporter.png">
+		
+			<Group id="slimdevices.transporter" />
+		</Window>
+
+		<If test="${slimdevices.remote}=slimdevices.vremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.transporter.remote"
+				name="SoftSqueeze"
+				visible="true"
+				owner="slimdevices.main"
+				x="1016" y="100">
+		
+				<Group id="slimdevices.vplaybuttons" />
+			</Window>
+		</If>
+	
+		<If test="${slimdevices.remote}=slimdevices.hremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.transporter.hremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="301" y="291">
+		
+				<Group id="slimdevices.hplaybuttons" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.newremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.transporter.newremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				windowmask="/newremote.png"
+				x="1016" y="100">
+		
+				<Group id="slimdevices.newremote" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.boomremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.transporter.boomremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="1016" y="100">
+		
+				<Group id="slimdevices.boomremote" />
+			</Window>
+		</If>		
+	</If>
+	
+	<If test="${slimdevices.display}=slimdevices.boomsmall">	
+		<Set name="deviceid" value="11" />
+	
+		<Window 
+			id="slimdevices.main"
+			configid="slimdevices.boomsmall"
+			deviceid="11"
+			name="SoftSqueeze"
+			visible="true"
+			x="100" y="100"
+			icon="/icon.png"
+			windowmask="/boom_small.png">
+		
+			<Group id="slimdevices.boomsmall" />
+		</Window>
+
+		<If test="${slimdevices.remote}=slimdevices.vremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.boomsmall.remote"
+				name="SoftSqueeze"
+				visible="true"
+				owner="slimdevices.main"
+				x="871" y="100">
+		
+				<Group id="slimdevices.vplaybuttons" />
+			</Window>
+		</If>
+	
+		<If test="${slimdevices.remote}=slimdevices.hremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.boomsmall.hremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="100" y="414">
+		
+				<Group id="slimdevices.hplaybuttons" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.newremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.boomsmall.newremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				windowmask="/newremote.png"
+				x="871" y="100">
+		
+				<Group id="slimdevices.newremote" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.boomremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.boomsmall.boomremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="818" y="100">
+		
+				<Group id="slimdevices.boomremote" />
+			</Window>
+		</If>		
+	</If>
+		
+	<If test="${slimdevices.display}=slimdevices.boomlarge">	
+		<Set name="deviceid" value="11" />
+	
+		<Window 
+			id="slimdevices.main"
+			configid="slimdevices.boomlarge"
+			deviceid="11"
+			name="SoftSqueeze"
+			visible="true"
+			x="30" y="30"
+			icon="/icon.png"
+			windowmask="/boom_large.png">
+		
+			<Group id="slimdevices.boomlarge" />
+		</Window>
+
+		<If test="${slimdevices.remote}=slimdevices.vremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.boomlarge.remote"
+				name="SoftSqueeze"
+				visible="true"
+				owner="slimdevices.main"
+				x="100" y="100">
+		
+				<Group id="slimdevices.vplaybuttons" />
+			</Window>
+		</If>
+	
+		<If test="${slimdevices.remote}=slimdevices.hremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.boomlarge.hremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="100" y="677">
+		
+				<Group id="slimdevices.hplaybuttons" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.newremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.boomlarge.newremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				windowmask="/newremote.png"
+				x="100" y="100">
+		
+				<Group id="slimdevices.newremote" />
+			</Window>
+		</If>		
+
+		<If test="${slimdevices.remote}=slimdevices.boomremote">
+			<Window 
+				id="slimdevices.remote"
+				configid="slimdevices.boomlarge.boomremote"
+				name="SoftSqueeze" 
+				visible="true" 
+				owner="slimdevices.main" 
+				x="100" y="200">
+		
+				<Group id="slimdevices.boomremote" />
+			</Window>
+		</If>		
+	</If>
+</SoftSqueezeSkin>
+

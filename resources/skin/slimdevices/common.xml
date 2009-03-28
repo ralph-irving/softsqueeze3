@@ -1,0 +1,722 @@
+<?xml version="1.0" ?>
+<!DOCTYPE SoftSqueezeSkin SYSTEM "../skin.dtd">
+
+<SoftSqueezeSkin>
+	<!-- Slim-Small skin for SoftSqueeze -->
+	<!-- with permission from Slim Devices -->
+	<!-- Graham Scott g@hindsight.it 2004   -->
+	<SkinInfo>
+		<Version>2.3g</Version>
+	</SkinInfo>
+		
+	<Action 
+		id="power" 
+		label="Power"
+		maskrgb="0xc0b090" 
+		script="ir(0x768940bf)" 
+		keybinding="" 
+		/>
+		
+	<Action 
+		id="rew"
+		label="Rewind"
+		maskrgb="0xc0a480" 
+		script="ir(0x7689c03f)" 
+		keybinding="Z" 
+		/>
+		
+	<Action 
+		id="pause" 
+		label="Pause"
+		maskrgb="0x504844" 
+		script="ir(0x768920df)" 
+		keybinding="C" 
+		/>
+		
+	<Action 
+		id="fwd" 
+		label="Forward"
+		maskrgb="0x708c58" 
+		script="ir(0x7689a05f)" 
+		keybinding="B" 
+		/>
+		
+	<Action 
+		id="shuffle" 
+		label="Shuffle"
+		maskrgb="0x688460" 
+		script="ir(0x7689d827)" 
+		keybinding="S"
+		/>
+		
+	<Action 
+		id="repeat" 
+		label="Repeat"
+		maskrgb="0x5c6854" 
+		script="ir(0x768938c7)" 
+		keybinding="R" 
+		/>
+		
+	<Action 
+		id="bright" 
+		label="Brightness"
+		maskrgb="0x18080c" 
+		script="ir(0x768904fb)" 
+		keybinding="" 
+		/>
+		
+	<Action 
+		id="size" 
+		label="Size"
+		maskrgb="0x606c5c" 
+		script="ir(0x7689f807)" 
+		keybinding="control D" 
+		/>
+		
+	<Action 
+		id="volup" 
+		label="Volume up"
+		maskrgb="0x2c1c18" 
+		script="ir(0x7689807f)" 
+		keybinding="PLUS,shift EQUALS" 
+		/>
+		
+	<Action 
+		id="voldown" 
+		label="Volume Down"
+		maskrgb="0x80684c" 
+		script="ir(0x768900ff)" 
+		keybinding="MINUS" 
+		/>
+		
+	<Action 
+		id="mute" 
+		label="Mute"
+		maskrgb="0x9c8c74" 
+		script="ir(0x0000c038)"
+		keybinding="M" 
+		/>
+		
+	<Action 
+		id="sleep" 
+		label="Sleep"
+		maskrgb="0x9c9474" 
+		script="ir(0x7689b847)" 
+		keybinding="" 
+		/>
+		
+	<Action 
+		id="add" 
+		label="Add"
+		maskrgb="0x44443c" 
+		script="ir(0x7689609f)" 
+		keybinding="L" 
+		/>
+		
+	<Action 
+		id="play" 
+		label="Play"
+		maskrgb="0xd4c494" 
+		script="ir(0x768910ef)" 
+		keybinding="X" 
+		/>
+		
+	<Action 
+		id="up" 
+		label="Up"
+		maskrgb="0x90886c" 
+		script="ir(0x7689e01f)" 
+		keybinding="UP" 
+		/>
+		
+	<Action 
+		id="left" 
+		label="Left"
+		maskrgb="0xa09480" 
+		script="ir(0x7689906f)" 
+		keybinding="LEFT" 
+		/>
+		
+	<Action 
+		id="down" 
+		label="Down"
+		maskrgb="0xd8dcd8" 
+		script="ir(0x7689b04f)" 
+		keybinding="DOWN" 
+		/>
+		
+	<Action 
+		id="right" 
+		label="Right"
+		maskrgb="0x2c1c28" 
+		script="ir(0x7689d02f)" 
+		keybinding="RIGHT" 
+		/>
+		
+	<Action 
+		id="1" 
+		label="1"
+		maskrgb="0x440c10" 
+		script="ir(0x7689f00f)" 
+		keybinding="1" 
+		/>
+		
+	<Action 
+		id="2" 
+		label="2"
+		maskrgb="0x0c0820" 
+		script="ir(0x768908f7)" 
+		keybinding="2"
+		/>
+		
+	<Action 
+		id="3" 
+		label="3"
+		maskrgb="0x380830" 
+		script="ir(0x76898877)" 
+		keybinding="3"
+		/>
+		
+	<Action 
+		id="4" 
+		label="4"
+		maskrgb="0x300828" 
+		script="ir(0x768948b7)" 
+		keybinding="4"
+		/>
+		
+	<Action 
+		id="5" 
+		label="5"
+		maskrgb="0x2c1428" 
+		script="ir(0x7689c837)" 
+		keybinding="5"
+		/>
+		
+	<Action 
+		id="6" 
+		label="6"
+		maskrgb="0x68685c" 
+		script="ir(0x768928d7)" 
+		keybinding="6" 
+		/>
+		
+	<Action 
+		id="7" 
+		label="7"
+		maskrgb="0x341c30" 
+		script="ir(0x7689a857)" 
+		keybinding="7" 
+		/>
+		
+	<Action 
+		id="8" 
+		label="8"
+		maskrgb="0x9cb07c" 
+		script="ir(0x76896897)" 
+		keybinding="8" 
+		/>
+		
+	<Action 
+		id="9" 
+		label="9"
+		maskrgb="0x7ca060" 
+		script="ir(0x7689e817)" 
+		keybinding="9" 
+		/>
+		
+	<Action 
+		id="0" 
+		label="0"
+		maskrgb="0xc4bca8" 
+		script="ir(0x76899867)" 
+		keybinding="0" 
+		/>
+		
+	<Action 
+		id="nowplaying" 
+		label="Now playing"
+		maskrgb="0x2c2818" 
+		script="ir(0x76897887)" 
+		keybinding="N"
+		/>
+		
+	<Action 
+		id="home" 
+		label="Home"
+		maskrgb="0x006ae9" 
+		script="ir(0x768922dd)" 
+		keybinding="H"
+		/>
+		
+	<Action 
+		id="search" 
+		label="Search"
+		maskrgb="0xa8a8ac" 
+		script="ir(0x768958a7)" 
+		keybinding="F"
+		/>
+
+	<Action 
+		id="favorites" 
+		label="Favorites"
+		maskrgb="0xef4746" 
+		script="ir(0x768918e7)"
+		/>
+		
+	<Action 
+		id="browse" 
+		label="Browse"
+		maskrgb="0x009659" 
+		script="ir(0x7689708f)"
+		/>
+		
+	<Action 
+		id="drag" 
+		label="Move windows" 
+		maskrgb="0xffffff" 
+		script="drag()"
+		/>
+		
+	<Action 
+		id="remote" 
+		label="Show/hide remote control" 
+		maskrgb="0x587454" 
+		script="setVisible(slimdevices.remote)" 
+		keybinding="control W"
+		/>
+		
+	<Action 
+		id="quit" 
+		label="Quit"
+		maskrgb="0x402c38" 
+		script="quit()" 
+		keybinding="Q"
+		/>
+		
+	<Action 
+		id="fullscreen" 
+		label="Fullscreen"
+		maskrgb="0x2c1808" 
+		script="setVisible(slimdevices.fullscreen)" 
+		/>
+		
+	<Action 
+		id="fullscreenescape" 
+		label="Exit fullscreen"
+		script="setVisible(slimdevices.fullscreen, false)" 
+		keybinding="ESCAPE"
+		/>
+		
+	<Action 
+		id="minimise" 
+		label="Minimise"
+		maskrgb="0xc47474" 
+		script="iconify()" 
+		/>
+		
+	<Action 
+		id="browser" 
+		label="Browser"
+		maskrgb="0xb49474" 
+		script="openURL(http://${slimserver}/index.html?player=${player})" 
+		keybinding="W"
+		/>
+		
+	<Action 
+		id="about" 
+		label="About SoftSqueeze"
+		maskrgb="0x88b074" 
+		script="openURL(http://wiki.slimdevices.com/index.php/SoftSqueeze)"
+		keybinding="F1"
+		/>
+		
+	<Action 
+		id="options" 
+		label="Options"
+		maskrgb="0x948c7c" 
+		script="setVisible(softsqueeze.config)" 
+		keybinding="control P"
+		/>
+
+    <!-- transporter front panel -->
+	<Action 
+		id="panel.power" 
+		label="Power"
+		maskrgb="0xf0f000" 
+		script="switch(0x000a)" 
+		/>
+
+	<Action 
+		id="panel.up" 
+		label="Up"
+		maskrgb="0xf01000" 
+		script="switch(0x000b)" 
+		/>
+
+	<Action 
+		id="panel.down" 
+		label="Down"
+		maskrgb="0xe0c810" 
+		script="switch(0x000c)" 
+		/>
+
+	<Action 
+		id="panel.left" 
+		label="Left"
+		maskrgb="0xf03000" 
+		script="switch(0x000d)" 
+		/>
+
+	<Action 
+		id="panel.right" 
+		label="Right"
+		maskrgb="0xe0e010" 
+		script="switch(0x000e)" 
+		/>
+
+	<Action 
+		id="panel.search" 
+		label="Search"
+		maskrgb="0xf0b000" 
+		script="switch(0x000f)" 
+		/>
+
+	<Action 
+		id="panel.rew" 
+		label="Rew"
+		maskrgb="0xe07408" 
+		script="switch(0x0010)" 
+		/>
+
+	<Action 
+		id="panel.fwd" 
+		label="Fwd"
+		maskrgb="0xe03c04" 
+		script="switch(0x0011)" 
+		/>
+
+	<Action 
+		id="panel.play" 
+		label="Play"
+		maskrgb="0xe0ac0c" 
+		script="switch(0x0012)" 
+		/>
+
+	<Action 
+		id="panel.add" 
+		label="Add"
+		maskrgb="0xe0900c" 
+		script="switch(0x0013)" 
+		/>
+
+	<Action 
+		id="panel.brightness" 
+		label="Brightness"
+		maskrgb="0xf05000" 
+		script="switch(0x0014)" 
+		/>
+
+	<Action 
+		id="panel.nowplaying" 
+		label="Now playing"
+		maskrgb="0xf0d000" 
+		script="switch(0x0015)" 
+		/>
+
+	<Action 
+		id="panel.pause" 
+		label="Pause"
+		maskrgb="0xe05808" 
+		script="switch(0x0017)" 
+		/>
+
+	<Action 
+		id="panel.favorites" 
+		label="Favorites"
+		maskrgb="0xf09000" 
+		script="switch(0x0018)" 
+		/>
+
+	<Action 
+		id="panel.size" 
+		label="Size"
+		maskrgb="0xf07000" 
+		script="switch(0x001b)" 
+		/>
+
+	<Action 
+		id="panel.visual" 
+		label="Visual"
+		maskrgb="0xd0d020" 
+		script="switch(0x001c)" 
+		/>
+
+	<Action 
+		id="panel.volume" 
+		label="Volume"
+		maskrgb="0xe02004" 
+		script="switch(0x001d)" 
+		/>
+
+	<Action 
+		id="panel.knob" 
+		label="Knob"
+		maskrgb="0x000000" 
+		script="knob(0x0001000e, 0x0001000d)"
+		/>
+
+	<Action 
+		id="panel.preset1" 
+		label="Preset 1"
+		maskrgb="0x0000ff" 
+		script="switch(0x0020)" 
+		/>
+		
+	<Action 
+		id="panel.preset2" 
+		label="Preset 2"
+		maskrgb="0x3400ff" 
+		script="switch(0x0021)" 
+		/>
+		
+	<Action 
+		id="panel.preset3" 
+		label="Preset 3"
+		maskrgb="0x5700ff" 
+		script="switch(0x0022)" 
+		/>
+		
+	<Action 
+		id="panel.preset4" 
+		label="preset 4"
+		maskrgb="0x7a00ff" 
+		script="switch(0x0023)" 
+		/>
+		
+	<Action 
+		id="panel.preset5" 
+		label="Preset 5"
+		maskrgb="0x9000ff" 
+		script="switch(0x0024)" 
+		/>
+		
+	<Action 
+		id="panel.preset6" 
+		label="Preset 6"
+		maskrgb="0xbb00ff" 
+		script="switch(0x0025)" 
+		/>
+		
+	<Action 
+		id="panel.snooze" 
+		label="Snooze"
+		maskrgb="0xdc00ff" 
+		script="switch(0x0026)" 
+		/>
+		
+
+		
+	<Elements>
+		<VfPanel 
+			id="slimdevices.vfpanel1" 
+			scale="1" 
+			fgcolor="0x32EA1A" 
+			bgcolor="0x000000" 
+			/>
+			
+		<VfPanel 
+			id="slimdevices.vfpanel2" 
+			scale="2" 
+			fgcolor="0x32EA1A" 
+			bgcolor="0x000000" 
+			/>
+			
+		<VfPanel 
+			id="slimdevices.vfpanelb1" 
+			scale="1" 
+			fgcolor="0x20e0e0" 
+			bgcolor="0x000000" 
+			/>
+			
+		<VfPanel 
+			id="slimdevices.vfpanelb3" 
+			scale="1" 
+			offset="320"
+			fgcolor="0x20e0e0" 
+			bgcolor="0x000000" 
+			/>
+
+		<VfPanel 
+			id="slimdevices.vfpanelc1" 
+			scale="1" 
+			fgcolor="0x20e0e0" 
+			bgcolor="0x080E0C" 
+			/>
+			
+		<VfPanel 
+			id="slimdevices.vfpanelc2" 
+			scale="2" 
+			fgcolor="0x20e0e0" 
+			bgcolor="0x080E0C" 
+			/>
+			
+		<VfPanel 
+			id="slimdevices.vfpaneld1" 
+			scale="1" 
+			xdiv="2" 
+			fgcolor="0x20e0e0" 
+			bgcolor="0x130713" 
+			/>
+			
+		<VfPanel 
+			id="slimdevices.vfpaneld2" 
+			scale="2" 
+			xdiv="2" 
+			fgcolor="0x20e0e0" 
+			bgcolor="0x130713" 
+			/>
+
+		<!-- main display (small) -->
+		<GroupDef 
+			id="slimdevices.vfd" 
+			background="/main.png" 
+			mask="/main_mask.png" 
+			width="400" height="90">
+			
+			<Element id="slimdevices.vfpanel1" x="40" y="31" />
+		</GroupDef>
+
+		<!-- main display (large) -->
+        <GroupDef 
+			id="slimdevices.vfd2"
+	        background="/main2.png"
+	        mask="/main2_mask.png"
+			width="736"
+			height="116">
+			
+            <Element id="slimdevices.vfpanel2" x="48" y="30" />
+        </GroupDef>
+		
+		<!-- sb3 display (small) -->
+		<GroupDef 
+			id="slimdevices.sb3small" 
+			background="/squeezebox3.png" 
+			mask="/squeezebox3_mask.png" 
+			down="/squeezebox3_down.png" 
+			width="391" height="204">
+			
+			<Element id="slimdevices.vfpanelc1" x="37" y="54" />
+		</GroupDef>
+
+		<!-- sb3 display (large) -->
+        <GroupDef 
+			id="slimdevices.sb3large"
+	        background="/squeezebox3_large.png"
+	        mask="/squeezebox3_large_mask.png"
+	        down="/squeezebox3_large_down.png"
+			width="783"
+			height="396">
+			
+            <Element id="slimdevices.vfpanelc2" x="76" y="92" />
+        </GroupDef>
+		
+		<!-- normal horizontal remote control -->
+		<GroupDef 
+			id="slimdevices.hplaybuttons" 
+			background="/remote.png" 
+			mask="/remote_mask.png" 
+			down="/remote_down.png" 
+			bgcolor="0xcdb9bc" 
+			width="494" height="165"
+			/>
+			
+		<!-- vertical remote control -->
+		<GroupDef 
+			id="slimdevices.vplaybuttons" 
+			background="/remote2.png" 
+			mask="/remote2_mask.png" 
+			down="/remote2_down.png" 
+			bgcolor="0xcdb9bc" 
+			width="158" height="465" 
+			/>
+			
+		<GroupDef 
+			id="slimdevices.fullvfd" 
+			background="/main2.png" 
+			mask="/main2_mask.png" 
+			width="736" height="109">
+			
+			<Element id="slimdevices.vfpanel2" x="40" y="38" />
+		</GroupDef>
+		
+		<!-- new remote -->
+		<GroupDef 
+			id="slimdevices.newremote" 
+			background="/newremote_down.png" 
+			backlight="/newremote.png" 
+			mask="/newremote_mask.png" 
+			down="/newremote_down.png" 
+			width="141" height="600" 
+			/>		
+
+		<!-- boom remote -->
+		<GroupDef 
+			id="slimdevices.boomremote" 
+			background="/boom_remote.png" 
+			mask="/boom_remote_mask.png" 
+			down="/boom_remote_down.png" 
+			width="186" height="412" 
+			/>		
+		
+		<!-- transporter -->
+		<GroupDef 
+			id="slimdevices.transporter" 
+			background="/transporter.png" 
+			mask="/transporter_mask.png" 
+			roll="/transporter_roll.png" 
+			down="/transporter_down.png" 
+			width="896" height="171">
+
+			<Element id="slimdevices.vfpanelb1" x="68" y="49" />
+			<Element id="slimdevices.vfpanelb3" x="510" y="49" />
+		</GroupDef>
+
+		<!-- boom (small) -->
+		<GroupDef 
+			id="slimdevices.boomsmall" 
+			background="/boom_small.png" 
+			mask="/boom_small_mask.png" 
+			roll="/boom_small_roll.png" 
+			down="/boom_small_down.png" 
+			width="771" height="314">
+			
+			<Element id="slimdevices.vfpaneld1" x="306" y="79" />
+		</GroupDef>
+
+		<!-- boom (large) -->
+        <GroupDef 
+			id="slimdevices.boomlarge"
+	        background="/boom_large.png"
+	        mask="/boom_large_mask.png"
+			roll="/boom_large_roll.png" 
+	        down="/boom_large_down.png"
+			width="1542"
+			height="627">
+			
+            <Element id="slimdevices.vfpaneld2" x="612" y="158" />
+        </GroupDef>
+		
+		
+		<!-- 800x600 fullscreen -->
+		<GroupDef 
+			id="slimdevices.fullgroup" 
+			bgcolor="0x000000" 
+			width="800" height="600">
+			
+			<Group id="slimdevices.fullvfd" x="32" y="100" />
+			<Group id="slimdevices.hplaybuttons" x="153" y="300" />
+		</GroupDef>
+	</Elements>		
+</SoftSqueezeSkin>
+

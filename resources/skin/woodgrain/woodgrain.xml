@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<!DOCTYPE SoftSqueezeSkin SYSTEM "../skin.dtd">
+
+<SoftSqueezeSkin>
+	<!-- Slim skin for SoftSqueeze -->
+	<!-- with permission from Slim Devices -->
+	<!-- Graham Scott g@hindsight.it 2004   -->
+	<SkinInfo>
+		<Version>2.3g</Version>
+	</SkinInfo>
+		
+	<Include file="common.xml" />	
+	
+	<Window 
+		id="woodgrain.main" 
+		name="SoftSqueeze" 
+		visible="true" 
+		x="100" y="100" 
+		icon="/icon.png">
+		
+		<Group id="woodgrain.vfd" />
+	</Window>
+	
+	<Window 
+		id="woodgrain.remote" 
+		name="SoftSqueeze" 
+		visible="true" 
+		owner="woodgrain.main" 
+		x="100" y="300">
+		
+		<Group id="woodgrain.playbuttons" />
+	</Window>
+
+	<Window 
+		id="woodgrain.fullscreen" 
+		name="SoftSqueeze" 
+		visible="false" 
+		x="0" y="0"
+		width="800" height="600" 
+		fullscreen="true" >
+		
+		<Group id="woodgrain.fullscreen" />
+	</Window>
+
+</SoftSqueezeSkin>
+

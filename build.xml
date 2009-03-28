@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project basedir="." default="all" name="Softsqueeze">
+    <property name="keystore" value="cvskeys" />
+    <property name="secret" value="secret" />
+    <property name="alias" value="softsqueeze" />
+
+    <taskdef name="install4j"
+		onerror="report"
+		classname="com.install4j.Install4JTask"
+		classpath="/usr/local/install4j/bin/install4j.jar" />
+	
+    <target name="init" >
+        <property name="VERSION" value="CVS_BUILD" />
+    </target>
+
+    <target name="initversion" >
+        <fail unless="VERSION" message="You need to set the build VERSION" />
+    </target>
+
+
+    <target name="compile" depends="init">
+        <mkdir dir="build"/>
+
+	<!-- compile application sources -->
+        <javac debug="true" source="1.3" target="1.3" deprecation="true" destdir="build" srcdir="src" classpath="lib/jnlp.jar;lib/ostermillerutils_1_03_00.jar;lib/log4j-1.2.8.jar;lib/tritonus_share.jar;lib/mp3spi1.9.2.jar;lib/jl1.0.jar;lib/jflac-1.2.jar;lib/jogg-0.0.7.jar;lib/jorbis-0.0.15.jar;lib/vorbisspi1.0.2.jar;lib/jsch-20040429.jar;lib/junit.jar;lib/nativeskin.jar" />
+        <!-- Copy application resources -->
+        <copy todir="build">
+            <fileset dir="resources" excludes="**/*.java,**/*.psd"/>
+        </copy>
+	<replace dir="build">
+	    <include name="**/*.properties" />
+	    <replacefilter token="@version@" value="${VERSION}" />
+	</replace>
+    </target>
+
+
+    <!-- create softsqueeze jar file -->
+    <target name="jar" depends="compile">
+        <jar basedir="build" compress="true" jarfile="SoftSqueeze.jar">
+            <exclude name="**/Thumbs.db" />
+            <manifest>
+                <attribute name="Built-By" value="${user.name}"/>
+                <attribute name="Main-Class" value="org.titmuss.softsqueeze.Application"/>
+                <attribute name="Class-Path" value="slimdevices.jar lib/jnlp.jar lib/log4j-1.2.8.jar lib/tritonus_share.jar lib/mp3spi1.9.2.jar lib/jl1.0.jar lib/jflac-1.2.jar lib/jogg-0.0.7.jar lib/jorbis-0.0.15.jar lib/vorbisspi1.0.2.jar lib/nativeskin.jar lib/jsch-20040429.jar lib/xml-apis.jar lib/dtd-xercesImpl.jar"/>
+            </manifest>
+        </jar>
+    </target>
+
+<!-- lib/xercesImpl.jar lib/xml-apis.jar -->
+
+
+    <!-- prepare application for shipping -->
+    <target name="dist" depends="init,jar">
+	<mkdir dir="dist/common" />
+	<mkdir dir="dist/common/lib" />
+  	<mkdir dir="dist/common/skin" />
+    <mkdir dir="dist/mac"/>
+	<mkdir dir="dist/mac/Softsqueeze.app"/>
+	<mkdir dir="dist/mac/Softsqueeze.app/Contents/Resources/Java/resources"/>
+	<mkdir dir="dist/mac/Softsqueeze.app/Contents/Resources/Java/lib"/>
+
+	<!-- sign main application -->
+	<signjar jar="SoftSqueeze.jar" signedjar="dist/common/SoftSqueeze.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+
+	<!-- sign library files -->
+	<signjar jar="lib/jnlp.jar" signedjar="dist/common/lib/jnlp.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/log4j-1.2.8.jar" signedjar="dist/common/lib/log4j-1.2.8.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/tritonus_share.jar" signedjar="dist/common/lib/tritonus_share.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/mp3spi1.9.2.jar" signedjar="dist/common/lib/mp3spi1.9.2.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/jl1.0.jar" signedjar="dist/common/lib/jl1.0.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/jflac-1.2.jar" signedjar="dist/common/lib/jflac-1.2.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/jsch-20040429.jar" signedjar="dist/common/lib/jsch-20040429.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+
+   	<signjar jar="lib/jogg-0.0.7.jar" signedjar="dist/common/lib/jogg-0.0.7.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/jorbis-0.0.15.jar" signedjar="dist/common/lib/jorbis-0.0.15.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/vorbisspi1.0.2.jar" signedjar="dist/common/lib/vorbisspi1.0.2.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+
+	<signjar jar="lib/xml-apis.jar" signedjar="dist/common/lib/xml-apis.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/dtd-xercesImpl.jar" signedjar="dist/common/lib/dtd-xercesImpl.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+
+        <signjar jar="lib/nativeskin.jar" signedjar="dist/common/lib/nativeskin.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+        <signjar jar="lib/nativeskinlib.jar" signedjar="dist/common/lib/nativeskinlib.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+
+
+	<!-- copy java web start/applet resouces -->
+	<copy todir="dist/common">
+	    <fileset dir="platform/jws" />
+	</copy>
+	<copy todir="dist/common">
+	    <fileset file="LICENSE.txt"/>
+	</copy>
+
+	<!-- copy osx resources -->
+	<copy todir="dist/mac/Softsqueeze.app">
+	    <fileset dir="platform/mac/Softsqueeze.app"/>
+	</copy>
+	<copy todir="dist/mac/Softsqueeze.app/Contents/Resources/Java/">
+	    <fileset dir="dist/common" includes="**" />
+	</copy>
+	<chmod file="dist/mac/Softsqueeze.app/Contents/MacOS/JavaApplicationStub" perm="ugo+rx"/>
+	<copy todir="dist/mac">
+	    <fileset file="LICENSE.txt"/>
+	</copy>
+
+	<!-- update version number -->
+	<replace dir="dist">
+	    <include name="**/*.jnlp" />
+	    <include name="**/*.plist" />
+	    <replacefilter token="@version@" value="${VERSION}" />
+	</replace>
+    </target>
+
+	
+	<!-- install in slimserver -->
+	<target name="slimserver" depends="dist">
+		<copy todir="../server/HTML/EN/html/softsqueeze">
+		    <fileset dir="dist/common" />
+		</copy>
+	</target>
+
+    <!-- zip any platform release -->
+    <target name="zip" depends="initversion, clean, dist" description="Zip architecture independant distribution" >
+        <zip zipfile="Softsqueeze-${VERSION}.zip">
+            <fileset dir="dist/common" includes="**" />
+        </zip>
+    </target>
+
+    <target name="media" depends="initversion, clean, dist">
+	<mkdir dir="media" />
+	<zip zipfile="media/softsqueeze_${VERSION}.zip">
+	    <fileset dir="dist/common" includes="**" />
+	</zip>
+	<install4j projectfile="platform/install4j/softsqueeze.install4j">
+	    <variable name="VERSION" value="${VERSION}" />
+	</install4j>
+    </target>
+
+
+    <!-- prepare mac dmg release -->
+    <target name="mac" depends="initversion, clean, dist" description="Mac" >
+	<exec executable="umount" os="Mac OS X">
+	    <arg line="/Volumes/Softsqueeze"/>
+	</exec>
+
+	<exec executable="hdiutil" os="Mac OS X">
+	    <arg line="create -fs HFS+ -volname Softsqueeze -size 20m Softsqueeze_temp.dmg"/>
+	</exec>
+
+	<exec executable="hdiutil" os="Mac OS X">
+	    <arg line="mount Softsqueeze_temp.dmg"/>
+	</exec>
+
+	<exec executable="ditto" os="Mac OS X">
+	    <arg line="-rsrc -V dist/mac /Volumes/Softsqueeze"/>
+	</exec>
+
+	<exec executable="hdiutil" os="Mac OS X">
+	    <arg line="unmount /Volumes/Softsqueeze"/>
+	</exec>
+
+	<exec executable="hdiutil" os="Mac OS X">
+	    <arg line="convert -format UDZO Softsqueeze_temp.dmg -o dist/Softsqueeze.dmg"/>
+	</exec>
+
+	<exec executable="umount" os="Mac OS X">
+	    <arg line="/Volumes/Softsqueeze"/>
+	</exec>
+
+	<delete file="Softsqueeze_temp.dmg" quiet="true" />
+    </target>
+
+
+    <!-- build everything -->
+    <target name="all" depends="clean,slimserver" description="Build everything.">
+        <echo message="Application built."/>
+    </target>
+
+    
+    <!-- create project javadoc -->
+    <target depends="init" description="Javadoc for my API." name="javadoc">
+        <mkdir dir="apidoc"/>
+        <javadoc destdir="apidoc" packagenames="com.xiomed.*">
+            <sourcepath>
+                <pathelement location="."/>
+            </sourcepath>
+            <classpath>
+                <pathelement location="lib/log4j-1.2.8.jar"/>
+            </classpath>
+        </javadoc>
+    </target>
+
+
+    <!-- clean build -->
+    <target name="clean" depends="init" description="Clean all build products.">
+        <delete dir="SoftSqueeze.jar" failOnError="false" />
+        <delete dir="dist" failOnError="false" />
+        <delete dir="build" failOnError="false" />
+        <delete dir="apidoc" failOnError="false" />
+    </target>
+
+</project>

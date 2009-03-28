@@ -1,0 +1,399 @@
+<?xml version="1.0" ?>
+<!DOCTYPE SoftSqueezeSkin SYSTEM "../skin.dtd">
+
+<SoftSqueezeSkin>
+	<!-- Slim-Small skin for SoftSqueeze -->
+	<!-- with permission from Slim Devices -->
+	<!-- Graham Scott g@hindsight.it 2004   -->
+	<SkinInfo>
+		<Version>2.3g</Version>
+	</SkinInfo>
+	
+	
+	<Action 
+		id="power" 
+		label="Power"
+		maskrgb="0xc0b090" 
+		script="ir(0x768940bf)" 
+		keybinding="" 
+		/>
+		
+	<Action 
+		id="rew"
+		label="Rewind"
+		maskrgb="0xc0a480" 
+		script="ir(0x7689c03f)" 
+		keybinding="Z" 
+		/>
+		
+	<Action 
+		id="pause" 
+		label="Pause"
+		maskrgb="0x504844" 
+		script="ir(0x768920df)" 
+		keybinding="C" 
+		/>
+		
+	<Action 
+		id="fwd" 
+		label="Forward"
+		maskrgb="0x708c58" 
+		script="ir(0x7689a05f)" 
+		keybinding="B" 
+		/>
+		
+	<Action 
+		id="shuffle" 
+		label="Shuffle"
+		maskrgb="0x688460" 
+		script="ir(0x7689d827)" 
+		keybinding="S"
+		/>
+		
+	<Action 
+		id="repeat" 
+		label="Repeat"
+		maskrgb="0x5c6854" 
+		script="ir(0x768938c7)" 
+		keybinding="R" 
+		/>
+		
+	<Action 
+		id="bright" 
+		label="Brightness"
+		maskrgb="0x18080c" 
+		script="ir(0x768904fb)" 
+		keybinding="" 
+		/>
+		
+	<Action 
+		id="size" 
+		label="Size"
+		maskrgb="0x606c5c" 
+		script="ir(0x7689f807)" 
+		keybinding="control D" 
+		/>
+		
+	<Action 
+		id="volup" 
+		label="Volume up"
+		maskrgb="0x2c1c18" 
+		script="ir(0x7689807f)" 
+		keybinding="PLUS,shift EQUALS" 
+		/>
+		
+	<Action 
+		id="voldown" 
+		label="Volume Down"
+		maskrgb="0x80684c" 
+		script="ir(0x768900ff)" 
+		keybinding="MINUS" 
+		/>
+		
+	<Action 
+		id="mute" 
+		label="Mute"
+		maskrgb="0x9c8c74" 
+		script="ir(0x0000c038)"
+		keybinding="M" 
+		/>
+		
+	<Action 
+		id="sleep" 
+		label="Sleep"
+		maskrgb="0x9c9474" 
+		script="ir(0x7689b847)" 
+		keybinding="" 
+		/>
+		
+	<Action 
+		id="add" 
+		label="Add"
+		maskrgb="0x44443c" 
+		script="ir(0x7689609f)" 
+		keybinding="L" 
+		/>
+		
+	<Action 
+		id="play" 
+		label="Play"
+		maskrgb="0xd4c494" 
+		script="ir(0x768910ef)" 
+		keybinding="X" 
+		/>
+		
+	<Action 
+		id="up" 
+		label="Up"
+		maskrgb="0x90886c" 
+		script="ir(0x7689e01f)" 
+		keybinding="UP" 
+		/>
+		
+	<Action 
+		id="left" 
+		label="Left"
+		maskrgb="0xa09480" 
+		script="ir(0x7689906f)" 
+		keybinding="LEFT" 
+		/>
+		
+	<Action 
+		id="down" 
+		label="Down"
+		maskrgb="0xd8dcd8" 
+		script="ir(0x7689b04f)" 
+		keybinding="DOWN" 
+		/>
+		
+	<Action 
+		id="right" 
+		label="Right"
+		maskrgb="0x2c1c28" 
+		script="ir(0x7689d02f)" 
+		keybinding="RIGHT" 
+		/>
+		
+	<Action 
+		id="1" 
+		label="1"
+		maskrgb="0x440c10" 
+		script="ir(0x7689f00f)" 
+		keybinding="1" 
+		/>
+		
+	<Action 
+		id="2" 
+		label="2"
+		maskrgb="0x0c0820" 
+		script="ir(0x768908f7)" 
+		keybinding="2"
+		/>
+		
+	<Action 
+		id="3" 
+		label="3"
+		maskrgb="0x380830" 
+		script="ir(0x76898877)" 
+		keybinding="3"
+		/>
+		
+	<Action 
+		id="4" 
+		label="4"
+		maskrgb="0x300828" 
+		script="ir(0x768948b7)" 
+		keybinding="4"
+		/>
+		
+	<Action 
+		id="5" 
+		label="5"
+		maskrgb="0x2c1428" 
+		script="ir(0x7689c837)" 
+		keybinding="5"
+		/>
+		
+	<Action 
+		id="6" 
+		label="6"
+		maskrgb="0x68685c" 
+		script="ir(0x768928d7)" 
+		keybinding="6" 
+		/>
+		
+	<Action 
+		id="7" 
+		label="7"
+		maskrgb="0x341c30" 
+		script="ir(0x7689a857)" 
+		keybinding="7" 
+		/>
+		
+	<Action 
+		id="8" 
+		label="8"
+		maskrgb="0x9cb07c" 
+		script="ir(0x76896897)" 
+		keybinding="8" 
+		/>
+		
+	<Action 
+		id="9" 
+		label="9"
+		maskrgb="0x7ca060" 
+		script="ir(0x7689e817)" 
+		keybinding="9" 
+		/>
+		
+	<Action 
+		id="0" 
+		label="0"
+		maskrgb="0xc4bca8" 
+		script="ir(0x76899867)" 
+		keybinding="0" 
+		/>
+		
+	<Action 
+		id="nowplaying" 
+		label="Now playing"
+		maskrgb="0x2c2818" 
+		script="ir(0x76897887)" 
+		keybinding="N"
+		/>
+		
+	<Action 
+		id="search" 
+		label="Search"
+		maskrgb="0xa8a8ac" 
+		script="ir(0x768958a7)" 
+		keybinding="F"
+		/>
+		
+	<Action 
+		id="drag" 
+		label="Move windows" 
+		maskrgb="0xffffff" 
+		script="drag()"
+		/>
+		
+	<Action 
+		id="remote" 
+		label="Show/hide remote control" 
+		maskrgb="0x587454" 
+		script="setVisible(excession.remote)" 
+		keybinding="control W"
+		/>
+		
+	<Action 
+		id="quit" 
+		label="Quit"
+		maskrgb="0x402c38" 
+		script="quit()" 
+		keybinding="Q"
+		/>
+		
+	<Action 
+		id="fullscreen" 
+		label="Fullscreen"
+		maskrgb="0x2c1808" 
+		script="setVisible(excession.fullscreen)" 
+		/>
+		
+	<Action 
+		id="fullscreenescape" 
+		label="Exit fullscreen"
+		script="setVisible(excession.fullscreen, false)" 
+		keybinding="ESCAPE"
+		/>
+		
+	<Action 
+		id="minimise" 
+		label="Minimise"
+		maskrgb="0xc47474" 
+		script="iconify()" 
+		/>
+		
+	<Action 
+		id="browser" 
+		label="Browser"
+		maskrgb="0xb49474" 
+		script="openURL(http://${slimserver}/index.html?player=${player})" 
+		keybinding="W"
+		/>
+		
+	<Action 
+		id="about" 
+		label="About SoftSqueeze"
+		maskrgb="0x88b074" 
+		script="openURL(http://wiki.slimdevices.com/index.php/SoftSqueeze)"
+		keybinding="F1"
+		/>
+		
+	<Action 
+		id="options" 
+		label="Options"
+		maskrgb="0x948c7c" 
+		script="setVisible(softsqueeze.config)" 
+		keybinding="control P"
+		/>
+
+		
+	<Elements>
+		<VfPanel 
+			id="excession.vfpanel1" 
+			scale="1" 
+			fgcolor="0x1ECEF7" 
+			bgcolor="0x000000" 
+			/>
+			
+		<VfPanel 
+			id="excession.vfpanel2" 
+			scale="2" 
+			fgcolor="0x1ECEF7" 
+			bgcolor="0x000000" 
+			/>
+			
+		<!-- main display (small) -->
+		<GroupDef 
+			id="excession.smallvfd" 
+			background="/main.png" 
+			mask="/main_mask.png" 
+			roll="/main_roll.png" 
+			down="/main_down.png" 
+			width="336" height="81">
+			
+			<Element id="excession.vfpanel1" x="8" y="12" />
+		</GroupDef>
+
+		<!-- main display (large) -->
+        <GroupDef 
+			id="excession.largevfd"
+	        background="/main2.png"
+	        mask="/main2_mask.png"
+	        roll="/main2_roll.png"
+	        down="/main2_down.png"
+			width="656"
+			height="116">
+			
+            <Element id="excession.vfpanel2" x="8" y="15" />
+        </GroupDef>
+		
+		<!-- main display (thin) -->
+        <GroupDef 
+			id="excession.thinvfd"
+	        background="/main3.png"
+	        mask="/main3_mask.png"
+	        down="/main3_down.png"
+			width="411"
+			height="41">
+			
+            <Element id="excession.vfpanel1" x="6" y="3" />
+        </GroupDef>
+		
+		
+		<!-- remote control (small) -->
+		<GroupDef 
+			id="excession.playbuttons" 
+			background="/remote.png" 
+			mask="/remote_mask.png" 
+			roll="/remote_roll.png" 
+			down="/remote_down.png" 
+			bgcolor="0xcdb9bc" 
+			width="336" height="109"
+			/>
+			
+		<!-- remote control (large) -->
+		<GroupDef 
+			id="excession.playbuttons2" 
+			background="/remote2.png" 
+			mask="/remote2_mask.png" 
+			roll="/remote2_roll.png" 
+			down="/remote2_down.png" 
+			bgcolor="0xcdb9bc" 
+			width="656" height="55"
+			/>
+			
+	</Elements>		
+</SoftSqueezeSkin>
+

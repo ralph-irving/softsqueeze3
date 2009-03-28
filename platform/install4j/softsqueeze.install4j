@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<install4j version="3.2.5">
+  <directoryPresets config="../../nativeskinwin32JAWT.dll" />
+  <application name="Softsqueeze" distributionSourceDir="" applicationId="0664-8868-6773-1691" mediaDir="../../media" mediaFilePattern="%SHORT_NAME%_%PLATFORM%%WITH_JRE%_%VERSION%" compression="6" lzmaCompression="false" keepModificationTimes="false" shortName="softsqueeze" publisher="Richard Titmuss" publisherWeb="http://softsqueeze.sourceforge.net" version="CVS_BUILD" allPathsRelative="true" backupOnSave="false" autoSave="false" macSignature="????" javaMinVersion="1.4" javaMaxVersion="" allowBetaVM="false">
+    <searchSequence>
+      <registry />
+      <envVar name="JAVA_HOME" />
+      <envVar name="JDK_HOME" />
+    </searchSequence>
+    <variables />
+  </application>
+  <files>
+    <mountPoints>
+      <mountPoint name="" id="1" location="" mode="755" />
+    </mountPoints>
+    <entries>
+      <fileEntry mountPoint="1" file="../../nativeskinwin32JAWT.dll" overwrite="4" shared="false" mode="644" dontUninstall="false" />
+      <dirEntry mountPoint="1" file="./windows" overwrite="4" shared="false" mode="644" dontUninstall="false" excludeSuffixes="" dirMode="755">
+        <exclude>
+          <entry location=".svn" launcher="false" />
+          <entry location="CVS" launcher="false" />
+        </exclude>
+      </dirEntry>
+      <dirEntry mountPoint="1" file="./linux" overwrite="4" shared="false" mode="644" dontUninstall="false" excludeSuffixes="" dirMode="755">
+        <exclude>
+          <entry location=".svn" launcher="false" />
+          <entry location="CVS" launcher="false" />
+        </exclude>
+      </dirEntry>
+      <dirEntry mountPoint="1" file="../../dist/common" overwrite="4" shared="false" mode="644" dontUninstall="false" excludeSuffixes="" dirMode="755">
+        <exclude>
+          <entry location="MiniSqueeze.jar" launcher="false" />
+          <entry location="webstart.html" launcher="false" />
+          <entry location="icons" launcher="false" />
+          <entry location="applet.html" launcher="false" />
+          <entry location="softsqueeze.jnlp" launcher="false" />
+        </exclude>
+      </dirEntry>
+    </entries>
+    <components />
+  </files>
+  <launchers>
+    <launcher name="softsqueeze" id="2" external="false" excludeFromMenu="false" menuName="" icnsFile="./icons/Softsqueeze.icns" pngIcon16File="./icons/icon32.png" pngIcon32File="./icons/icon64.png" macServiceDependencies="" allowUserChangeServiceStartType="true">
+      <executable name="softsqueeze" type="1" iconSet="true" iconFile="" executableDir="." redirectStderr="true" stderrFile="error.log" redirectStdout="false" stdoutFile="output.log" failOnStderrOutput="true" executableMode="1" changeWorkingDirectory="true" workingDirectory="." singleInstance="false" serviceStartType="2" serviceDependencies="" serviceDescription="" jreLocation="">
+        <versionInfo include="false" fileVersion="%VERSION%" companyName="" fileDescription="" legalCopyright="" productVersion="" internalName="" />
+      </executable>
+      <splashScreen show="true" autoOff="true" alwaysOnTop="true" width="400" height="200" bitmapFile="./icons/splash.gif">
+        <text>
+          <statusLine x="5" y="160" text="" font="Arial" fontSize="8" fontColor="0,0,0" fontWeight="500" />
+          <versionLine x="5" y="180" text="%VERSION%" font="Arial" fontSize="8" fontColor="0,0,0" fontWeight="500" />
+        </text>
+      </splashScreen>
+      <java mainClass="org.titmuss.softsqueeze.Application" vmParameters="-Xms64m -Xmx128m -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:SurvivorRatio=2 -XX:NewRatio=8" arguments="" allowVMPassthroughParameters="true" minVersion="" maxVersion="" preferredVM="" allowBetaVM="false" jdkOnly="false">
+        <searchSequence>
+          <registry />
+          <envVar name="JAVA_HOME" />
+          <envVar name="JDK_HOME" />
+        </searchSequence>
+        <classPath>
+          <archive location="SoftSqueeze.jar" failOnError="false" />
+          <directory location="lib" failOnError="false" />
+        </classPath>
+        <nativeLibraryDirectories>
+          <directory name="C:/Program Files/SoftSqueeze" />
+        </nativeLibraryDirectories>
+      </java>
+      <includedFiles />
+    </launcher>
+    <launcher name="softsqueezeHeadless" id="30" external="false" excludeFromMenu="false" menuName="" icnsFile="./icons/Softsqueeze.icns" pngIcon16File="./icons/icon32.png" pngIcon32File="./icons/icon64.png" macServiceDependencies="" allowUserChangeServiceStartType="true">
+      <executable name="softsqueezeHeadless" type="1" iconSet="true" iconFile="" executableDir="." redirectStderr="true" stderrFile="error.log" redirectStdout="false" stdoutFile="output.log" failOnStderrOutput="true" executableMode="1" changeWorkingDirectory="true" workingDirectory="." singleInstance="false" serviceStartType="2" serviceDependencies="" serviceDescription="" jreLocation="">
+        <versionInfo include="false" fileVersion="" companyName="" fileDescription="" legalCopyright="" productVersion="" internalName="" />
+      </executable>
+      <splashScreen show="false" autoOff="true" alwaysOnTop="true" width="0" height="0" bitmapFile="">
+        <text>
+          <statusLine x="20" y="20" text="" font="Arial" fontSize="8" fontColor="0,0,0" fontWeight="500" />
+          <versionLine x="20" y="40" text="version %VERSION%" font="Arial" fontSize="8" fontColor="0,0,0" fontWeight="500" />
+        </text>
+      </splashScreen>
+      <java mainClass="org.titmuss.softsqueeze.Application" vmParameters="-Dskin=headless -Xms64m -Xmx128m -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:SurvivorRatio=2 -XX:NewRatio=8" arguments="" allowVMPassthroughParameters="true" minVersion="" maxVersion="" preferredVM="" allowBetaVM="false" jdkOnly="false">
+        <searchSequence>
+          <registry />
+          <envVar name="JAVA_HOME" />
+          <envVar name="JDK_HOME" />
+        </searchSequence>
+        <classPath>
+          <archive location="SoftSqueeze.jar" failOnError="false" />
+          <directory location="lib" failOnError="false" />
+        </classPath>
+        <nativeLibraryDirectories />
+      </java>
+      <includedFiles />
+    </launcher>
+    <launcher name="SoftSqueeze FAQ.url" id="39" external="true" excludeFromMenu="false" menuName="" externalFile="Softsqueeze FAQ.url" />
+    <launcher name="SoftSqueeze on the Web.url" id="40" external="true" excludeFromMenu="false" menuName="" externalFile="Softsqueeze on the Web.url" />
+  </launchers>
+  <installerGui installerType="1" runUninstallerOnUpdate="false" addOnAppId="" suggestPreviousLocations="true" allowUnattendedInstall="false" useCustomHeaderImage="false" customHeaderImage="" customSize="false" customWidth="500" customHeight="390">
+    <customCode preAction="false" preActionClass="" postAction="false" postActionClass="" preUninstallAction="false" preUninstallActionClass="" postUninstallAction="false" postUninstallActionClass="" initHandler="false" initHandlerClass="" directoryValidator="false" directoryValidatorClass="" installationHandler="false" installationHandlerClass="" />
+    <standardScreens>
+      <screen id="welcome" enabled="true" useCustomBanner="false" bannerImageFile="" background="255,255,255" />
+      <screen id="license" enabled="true" file="../../LICENSE.txt" />
+      <screen id="location" enabled="true" showSpace="true" suggestAppDir="true" />
+      <screen id="components" enabled="false" allSelected="true" firstMandatory="true">
+        <selectedComponents />
+        <mandatoryComponents />
+      </screen>
+      <screen id="programGroup" enabled="false" />
+      <screen id="fileAssociations" enabled="false">
+        <associations />
+      </screen>
+      <screen id="services" enabled="true" allSelected="true">
+        <selectedServiceLaunchers />
+      </screen>
+      <screen id="additionalTasks" enabled="true" customTasksPlacement="1">
+        <customTasks />
+      </screen>
+      <screen id="preInfo" enabled="false" file="" />
+      <screen id="install" enabled="true" />
+      <screen id="postInfo" enabled="false" file="" />
+      <screen id="finished" enabled="true" useCustomBanner="false" bannerImageFile="" background="255,255,255" />
+    </standardScreens>
+    <customScreens />
+  </installerGui>
+  <mediaSets>
+    <win32 name="Windows" id="3" mediaFileName="" installDir="SoftSqueeze" allLaunchers="true" includedJRE="" manualJREEntry="false" bundleType="1" jreURL="" jreFtpURL="" jreShared="false" customInstallBaseDir="" allowUserStartAfterFinish="true" launchExecutableId="2" createUninstallIcon="true" overrideLicenseFile="false" licenseFile="" overridePreInformationFile="false" preInformationFile="" overridePostInformationFile="false" postInformationFile="" adminRequired="false" languageID="en" modeDesktopIcon="3" desktopLauncherId="2" programGroup="SoftSqueeze" allowUserDisableStartMenuCreation="false" reboot="false" rebootUninstaller="false" modeQuickLaunchIon="3">
+      <selectedLaunchers />
+      <messageSet language="English" />
+      <exclude>
+        <entry location=".svn" launcher="false" />
+        <entry location="softsqueeze_faq.desktop" launcher="false" />
+        <entry location="softsqueeze_on_the_web.desktop" launcher="false" />
+      </exclude>
+      <variables />
+      <excludedScreenIds />
+      <additionalStartMenuEntries />
+    </win32>
+    <win32 name="Windows (with JRE)" id="4" mediaFileName="" installDir="SoftSqueeze" allLaunchers="true" includedJRE="windows-x86-1.6.0" manualJREEntry="false" bundleType="1" jreURL="" jreFtpURL="" jreShared="false" customInstallBaseDir="" allowUserStartAfterFinish="true" launchExecutableId="2" createUninstallIcon="true" overrideLicenseFile="false" licenseFile="" overridePreInformationFile="false" preInformationFile="" overridePostInformationFile="false" postInformationFile="" adminRequired="false" languageID="en" modeDesktopIcon="3" desktopLauncherId="2" programGroup="SoftSqueeze" allowUserDisableStartMenuCreation="false" reboot="false" rebootUninstaller="false" modeQuickLaunchIon="3">
+      <selectedLaunchers />
+      <messageSet language="English" />
+      <exclude>
+        <entry location=".svn" launcher="false" />
+        <entry location="softsqueeze_faq.desktop" launcher="false" />
+        <entry location="softsqueeze_on_the_web.desktop" launcher="false" />
+      </exclude>
+      <variables />
+      <excludedScreenIds />
+      <additionalStartMenuEntries />
+    </win32>
+    <macos name="Mac OS X Single Bundle" id="23" mediaFileName="" installDir="softsqueeze" allLaunchers="false" customInstallBaseDir="" allowUserStartAfterFinish="true" launchExecutableId="2" createUninstallIcon="true" overrideLicenseFile="false" licenseFile="" overridePreInformationFile="false" preInformationFile="" overridePostInformationFile="false" postInformationFile="" adminRequired="false" languageID="en" modeDesktopIcon="3" desktopLauncherId="">
+      <selectedLaunchers>
+        <launcher id="2" />
+      </selectedLaunchers>
+      <messageSet language="English" />
+      <exclude>
+        <entry location="Softsqueeze FAQ.url" launcher="false" />
+        <entry location="Softsqueeze on the Web.url" launcher="false" />
+        <entry location=".svn" launcher="false" />
+        <entry location="softsqueeze_faq.desktop" launcher="false" />
+        <entry location="softsqueeze_on_the_web.desktop" launcher="false" />
+      </exclude>
+      <variables />
+      <excludedScreenIds />
+    </macos>
+    <linuxRPM name="Linux RPM" id="27" mediaFileName="" installDir="/opt/softsqueeze" allLaunchers="false" includedJRE="" manualJREEntry="false" customScriptMode="1" customScriptFile="" os="linux" arch="i386">
+      <selectedLaunchers>
+        <launcher id="2" />
+        <launcher id="30" />
+      </selectedLaunchers>
+      <messageSet language="English" />
+      <exclude>
+        <entry location="Softsqueeze FAQ.url" launcher="false" />
+        <entry location="Softsqueeze on the Web.url" launcher="false" />
+        <entry location=".svn" launcher="false" />
+      </exclude>
+      <variables />
+      <customScriptLines />
+    </linuxRPM>
+    <linuxRPM name="Linux RPM (with JRE)" id="28" mediaFileName="" installDir="/opt/softsqueeze" allLaunchers="false" includedJRE="linux-x86-1.5.0_08" manualJREEntry="false" customScriptMode="1" customScriptFile="" os="linux" arch="i386">
+      <selectedLaunchers>
+        <launcher id="2" />
+        <launcher id="30" />
+      </selectedLaunchers>
+      <messageSet language="English" />
+      <exclude>
+        <entry location="Softsqueeze FAQ.url" launcher="false" />
+        <entry location="Softsqueeze on the Web.url" launcher="false" />
+        <entry location=".svn" launcher="false" />
+      </exclude>
+      <variables />
+      <customScriptLines />
+    </linuxRPM>
+  </mediaSets>
+  <buildIds buildAll="true" />
+</install4j>
+

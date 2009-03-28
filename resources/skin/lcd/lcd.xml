@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<!DOCTYPE SoftSqueezeSkin SYSTEM "../skin.dtd">
+
+<SoftSqueezeSkin>
+	<!-- Slim skin for SoftSqueeze -->
+	<!-- with permission from Slim Devices -->
+	<!-- Graham Scott g@hindsight.it 2004   -->
+	<SkinInfo>
+		<Version>2.3g</Version>
+	</SkinInfo>
+	
+	<Include file="common.xml" />
+		
+	<Window 
+		id="lcd.main" 
+		name="SoftSqueeze" 
+		visible="true" 
+		x="100" y="100" 
+		icon="/icon.png">
+		
+		<Group id="lcd.vfd" />
+	</Window>
+	
+	<Window 
+		id="lcd.remote" 
+		name="SoftSqueeze" 
+		visible="true" 
+		owner="lcd.main" 
+		x="100" y="151">
+		
+		<Group id="lcd.playbuttons" />
+	</Window>
+
+</SoftSqueezeSkin>
+

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ENTITY % template "
+ (If*,Action*,Elements*,Window*,Applet*,Set*)*
+">
+
+<!ELEMENT Element EMPTY>
+<!ATTLIST Element
+	id CDATA #REQUIRED
+	x NMTOKEN #REQUIRED
+	y NMTOKEN #REQUIRED
+>
+<!ELEMENT Elements (GroupDef|VfPanel|SearchPanel|Playlist)*>
+<!ELEMENT Group EMPTY>
+<!ATTLIST Group 
+	id CDATA #REQUIRED
+	x NMTOKEN #IMPLIED
+	y NMTOKEN #IMPLIED
+>
+<!ELEMENT GroupDef (Element|Group)*>
+<!ATTLIST GroupDef
+	background CDATA #IMPLIED	
+	backlight CDATA #IMPLIED	
+	bgcolor NMTOKEN #IMPLIED
+	mask CDATA #IMPLIED
+	down CDATA #IMPLIED
+	roll CDATA #IMPLIED
+	height NMTOKEN #REQUIRED
+	id NMTOKEN #REQUIRED
+	width NMTOKEN #REQUIRED
+>
+<!--
+<!ELEMENT Playlist EMPTY>
+<!ATTLIST Playlist
+	id NMTOKEN #REQUIRED
+	width NMTOKEN #REQUIRED
+	height NMTOKEN #REQUIRED
+>
+<!ELEMENT CoverArt EMPTY>
+<!ATTLIST CoverArt
+	id NMTOKEN #REQUIRED
+	width NMTOKEN #REQUIRED
+	height NMTOKEN #REQUIRED
+>
+-->
+<!ELEMENT SearchPanel EMPTY>
+<!ATTLIST SearchPanel
+	id NMTOKEN #REQUIRED
+	width NMTOKEN #REQUIRED
+	height NMTOKEN #REQUIRED
+	fgcolor NMTOKEN #IMPLIED
+	bgcolor NMTOKEN #IMPLIED
+	font CDATA #IMPLIED
+	fontsize NMTOKEN #IMPLIED
+>
+<!ELEMENT Playlist EMPTY>
+<!ATTLIST Playlist
+	id NMTOKEN #REQUIRED
+	width NMTOKEN #REQUIRED
+	height NMTOKEN #REQUIRED
+	fgcolor NMTOKEN #IMPLIED
+	bgcolor NMTOKEN #IMPLIED
+	font CDATA #IMPLIED
+	fontsize NMTOKEN #IMPLIED
+>
+	<!--
+<!ELEMENT MusicTree EMPTY>
+<!ATTLIST MusicTree
+	id NMTOKEN #REQUIRED
+	width NMTOKEN #REQUIRED
+	height NMTOKEN #REQUIRED
+	fgcolor NMTOKEN #IMPLIED
+	bgcolor NMTOKEN #IMPLIED
+	font CDATA #IMPLIED
+	fontsize NMTOKEN #IMPLIED
+>
+-->
+<!ELEMENT Include EMPTY>
+<!ATTLIST Include file NMTOKEN #REQUIRED>
+<!ELEMENT SkinInfo (Version)>
+<!ELEMENT SoftSqueezeSkin (SkinInfo?,Config*,Include*,%template;)>
+<!ELEMENT Version (#PCDATA)>
+<!ELEMENT VfPanel EMPTY>
+<!ATTLIST VfPanel
+	bgcolor NMTOKEN #REQUIRED
+	fgcolor NMTOKEN #REQUIRED
+	id NMTOKEN #REQUIRED
+	scale NMTOKEN #REQUIRED
+>
+<!ELEMENT Window (Group*,Action*)>
+<!ATTLIST Window
+	icon CDATA #IMPLIED
+	id NMTOKEN #REQUIRED
+	name NMTOKEN #REQUIRED
+	owner NMTOKEN #IMPLIED
+	visible (true|false) #REQUIRED
+	configid NMTOKEN #IMPLIED
+	x NMTOKEN #REQUIRED
+	y NMTOKEN #REQUIRED
+	width NMTOKEN #IMPLIED
+	height NMTOKEN #IMPLIED
+	fullscreen (true|false) #IMPLIED
+	windowmask CDATA #IMPLIED
+>
+<!ELEMENT Set EMPTY>
+<!ATTLIST Set
+	name CDATA #REQUIRED
+	value CDATA #REQUIRED
+>
+<!ELEMENT Applet (Group)>
+<!ATTLIST Applet
+	id NMTOKEN #REQUIRED
+	name NMTOKEN #REQUIRED
+>
+<!ELEMENT Action EMPTY>
+<!ATTLIST Action
+	id NMTOKEN #REQUIRED
+	label CDATA #REQUIRED
+	maskrgb NMTOKEN #IMPLIED
+	script CDATA #REQUIRED
+	keybinding CDATA #IMPLIED
+>
+<!ELEMENT Config (Select*)>
+<!ELEMENT Select (Option+)>
+<!ATTLIST Select
+	id NMTOKEN #REQUIRED
+	label CDATA #REQUIRED
+>
+<!ELEMENT Option (#PCDATA)>
+<!ATTLIST Option
+	value NMTOKEN #REQUIRED
+	default (true|false) #IMPLIED
+>
+<!ELEMENT If %template;>
+<!ATTLIST If
+	test CDATA #REQUIRED
+>
+
