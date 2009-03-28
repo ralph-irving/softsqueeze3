@@ -133,11 +133,10 @@
       <excludedScreenIds />
       <additionalStartMenuEntries />
     </win32>
-    <win32 name="Windows (with JRE)" id="4" mediaFileName="" installDir="SoftSqueeze" allLaunchers="true" includedJRE="windows-x86-1.6.0" manualJREEntry="false" bundleType="1" jreURL="" jreFtpURL="" jreShared="false" customInstallBaseDir="" allowUserStartAfterFinish="true" launchExecutableId="2" createUninstallIcon="true" overrideLicenseFile="false" licenseFile="" overridePreInformationFile="false" preInformationFile="" overridePostInformationFile="false" postInformationFile="" adminRequired="false" languageID="en" modeDesktopIcon="3" desktopLauncherId="2" programGroup="SoftSqueeze" allowUserDisableStartMenuCreation="false" reboot="false" rebootUninstaller="false" modeQuickLaunchIon="3">
+    <win32 name="Windows (with JRE)" id="4" mediaFileName="" installDir="SoftSqueeze" allLaunchers="true" includedJRE="windows-x86-1.6.0_12" manualJREEntry="false" bundleType="1" jreURL="" jreFtpURL="" jreShared="false" customInstallBaseDir="" allowUserStartAfterFinish="true" launchExecutableId="2" createUninstallIcon="true" overrideLicenseFile="false" licenseFile="" overridePreInformationFile="false" preInformationFile="" overridePostInformationFile="false" postInformationFile="" adminRequired="false" languageID="en" modeDesktopIcon="3" desktopLauncherId="2" programGroup="SoftSqueeze" allowUserDisableStartMenuCreation="false" reboot="false" rebootUninstaller="false" modeQuickLaunchIon="3">
       <selectedLaunchers />
       <messageSet language="English" />
       <exclude>
-        <entry location=".svn" launcher="false" />
         <entry location="softsqueeze_faq.desktop" launcher="false" />
         <entry location="softsqueeze_on_the_web.desktop" launcher="false" />
       </exclude>
@@ -174,7 +173,7 @@
       <variables />
       <customScriptLines />
     </linuxRPM>
-    <linuxRPM name="Linux RPM (with JRE)" id="28" mediaFileName="" installDir="/opt/softsqueeze" allLaunchers="false" includedJRE="linux-x86-1.5.0_08" manualJREEntry="false" customScriptMode="1" customScriptFile="" os="linux" arch="i386">
+    <linuxRPM name="Linux RPM (with JRE)" id="28" mediaFileName="" installDir="/opt/softsqueeze" allLaunchers="false" includedJRE="linux-x86-1.5.0_17" manualJREEntry="false" customScriptMode="1" customScriptFile="" os="linux" arch="i386">
       <selectedLaunchers>
         <launcher id="2" />
         <launcher id="30" />
@@ -183,7 +182,6 @@
       <exclude>
         <entry location="Softsqueeze FAQ.url" launcher="false" />
         <entry location="Softsqueeze on the Web.url" launcher="false" />
-        <entry location=".svn" launcher="false" />
       </exclude>
       <variables />
       <customScriptLines />
