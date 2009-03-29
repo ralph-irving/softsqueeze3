@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <title>Softsqueeze 2.0</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="splash">
+<img src="softsqueeze.png" alt="Softsqueeze"></div>
+<div id="navlist">
+<ul>
+  <li><a href="index.html">Home</a>
+  </li>
+  <li id="uberlink"><a href="download.html">Download</a>
+  </li>
+  <li><a href="skins.html">Screenshots</a>
+  </li>
+  <li><a href="mailing.html">Mailing Lists</a>
+  </li>
+  <li><a href="faq.html">FAQ</a>
+  </li>
+  <br>
+  <li><a href="ssh.html">SSH Howto</a>
+  </li>
+  <li><a href="sync.html">Synchronization</a>
+  </li>
+  <li><a href="javamp3plugin.html">Java MP3 Plugin</a>
+  </li>
+  <li><a href="todo.html">Development</a>
+  </li>
+  <li><a href="http://sourceforge.net/projects/softsqueeze/">Sourceforge</a>
+  </li>
+</ul>
+<p><a href="http://sourceforge.net"><img
+ src="http://sourceforge.net/sflogo.php?group_id=105169&amp;type=1"
+ alt="SourceForge.net Logo" border="0" height="31" width="88"></a></p>
+<p><a href="http://sourceforge.net/donate/index.php?group_id=105169"><img
+ src="http://images.sourceforge.net/images/project-support.jpg"
+ alt="Support This Project" border="0" height="32" width="88"> </a></p>
+</div>
+<p>
+To use Softsqueeze first you will need to install:
+</p>
+<ul>
+  <li><a href="http://www.java.com">Java</a>
+(<b>version 1.4</b>
+or
+better)<br>
+  </li>
+  <li><a href="http://www.slimdevices.com/su_downloads.html">Slimserver</a>
+6.0 or above </li>
+</ul>
+<p></p>
+<p><i><span style="font-weight: bold;">You might not have to
+download</span>;
+Softsqueeze2 is included with the slimserver 6.0. To start Softsqueeze
+follow the instructions in the help section of the slimserver.<br>
+</i></p>
+If you need a different version of Softsqueeze, or want to install
+Softsqueeze on a remote PC then follow these instructions:<br>
+<h3>How to download Softsqueeze</h3>
+You must download the correct version of Softsqueeze to work with you
+slimserver version, Softsqueeze2 requires&nbsp; slimserver 6.0 or
+greater. The latest binary distribution is available from the
+SourceForge <a
+ href="https://sourceforge.net/project/showfiles.php?group_id=105169">download</a>
+area. On Windows or Linux download the .zip file. OS X users can
+install using the .dmg file.
+<p>Then once you have downloaded
+and uncompressed the Softsqueeze zip
+file, double click on the Softsqueeze.jar file to start the application
+(on some platforms you might have to start Softsqueeze from the <a
+ href="#commandline">command line</a>).
+</p>
+<p>When you first start
+Softsqueeze you will be asked for the server IP
+address and Slimserver version. You can change these settings later in
+the preferences dialog.</p>
+<h3><a name="webstart">Slimserver integration - Java Web
+Start and
+Applets</a></h3>
+The Slimserver includes a version of Softsqueeze that can be launched
+using
+either Java Web Start or as a Java applet. Click the <span
+ style="font-style: italic;">Softsqueeze</span>
+link in the help section of the slimserver, and the follow the
+instructions to start Softsqueeze or by opening one of the following
+url's (replace localhost with the hostname
+of your slimserver):<br>
+<br>
+<div style="margin-left: 40px;"><code>http://localhost:9000/html/softsqueeze/applet.html</code><br>
+<code>http://localhost:9000/html/softsqueeze/webstart.htm<span
+ style="font-family: &quot;Arial&quot;,sans-serif;">l</span></code><br>
+</div>
+<br>
+You can upgrade Softsqueeze as follows; <br>
+<ul>
+  <li>Download and&nbsp;
+unpack
+the Softsqueeze.zip file.</li>
+  <li>Locate your slimserver
+installation.
+For example <span style="font-family: monospace;">C:\Program
+Files\slimserver</span>.</li>
+  <li>Move the contexts of the
+Softsqueeze
+folder you download into the folder <code>HTML/EN/html/softsqueeze</code>.
+The restart your slimserver.</li>
+</ul>
+<h3>Slimserver integration on a OS
+X</h3>
+To update Softsqueeze in the Slimserver
+preference pane;
+<ul>
+  <li>Download
+and unpack the Softsqueeze.zip file.<br>
+  </li>
+  <li>Locate slimserver preference
+pane: <span style="font-family: monospace;">Library/Preference
+Panes/SlimServer.prefPane</span><br>
+(Not <span style="font-family: monospace;">System/Library/Preference
+Panes</span>, though if slimserver
+was installed for
+a user rather than for the system it may be in <span
+ style="font-family: monospace;">Users/USERNAME/Library/Preference
+Panes/SlimServer.prefPane</span>). </li>
+  <li><a name="webstart">Right click or control click on the
+preference
+pane and select 'Show Package Contents&rsquo;. You may have to log
+in
+as admin to access this option. </a></li>
+  <li><a name="webstart">Move the contents of the Softsqueeze
+folder
+you downloaded into <span style="font-family: monospace;">Contents/Server/HTML/EN/html/softsqueeze</span>
+You&rsquo;ll get a warning about replacing files, click on 'OK to
+all&rsquo;. You may have to put in your admin password if not
+logged in
+as admin. </a></li>
+</ul>
+<h3><a name="webstart">Other web servers - Java Web Start</a></h3>
+<a name="webstart">Softsqueeze
+can be distributed using Java Web Start
+- a technology that allows Java applications to be launched from a web
+browser. If you have a web server then you can enable Softsqueeze to
+use Java Web Start as follows:
+<ul>
+  <li>Unpack the Softsqueeze.zip
+file in
+your web
+server documents folder (for example htdocs in apache). </li>
+  <li>Configure you web server to
+include
+the MIME
+type 'application/x-java-jnlp-file' for .jnlp files. </li>
+  <li>Edit the softsqueeze.jnlp
+file. You
+need to
+add the absolute path to the jnlp file in the codebase attribute
+(relative paths do not work). Change the <span
+ style="font-family: monospace;">slimserver</span>
+property
+value as appropriate for your server. </li>
+  <li>Link the <span style="font-family: monospace;">softsqueeze.jnlp</span>
+file into a
+existing
+html document.</li>
+  <li>Clicking on the link in your
+html
+document will
+then launch the Softsqueeze application and automatically connect to
+your server. </li>
+</ul>
+In the current release you will get a security
+warning when you use Java Web Start to launch Softsqueeze. It will
+recommend that you do not run the application because it has not been
+correctly signed. Ignore this warning :).
+</a>
+<h3><a name="commandline"></a>Command
+line</h3>
+To start Softsqueeze from the command line using the <span
+ style="font-family: monospace;">java</span>
+command you need to:<br>
+<br>
+<span style="font-family: monospace;">cd
+&lt;Softsqueeze directory&gt;</span><br style="font-family: monospace;">
+<span style="font-family: monospace;">java
+-jar
+SoftSqueeze.jar</span>
+<ul>
+</ul>
+<h3><a name="webstart">Source code</a></h3>
+<a name="webstart">The
+source code for the project is available from
+the Slim Devices Subversion tree. You can </a><a
+ href="http://svn.slimdevices.com/trunk/softsqueeze/">browse</a>
+the
+code in your web browser, or use your Subversion client to check
+out the latest version using:
+<p><i>svn
+co http://svn.slimdevices.com/repos/slim/trunk/softsqueeze</i>.
+</p>
+<p>Softsqueeze is released under
+the <a href="http://www.gnu.org/copyleft/gpl.html">GPL
+license</a>.
+</p>
+<p>&copy; Richard Titmuss
+2004,2005<a href="http://sourceforge.net"><br>
+</a>&nbsp;<a
+ href="http://sourceforge.net/donate/index.php?group_id=105169">
+</a></p>
+</body>
+</html>

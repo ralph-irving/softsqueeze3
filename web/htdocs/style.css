@@ -1,0 +1,48 @@
+
+body {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Arial", sans-serif;
+  margin: 100px 10% 0 150px;
+}
+
+ul {
+  list-style-type: square
+}
+
+#splash {
+  position: absolute;
+  left: 150px;
+  top: 30px;
+}
+
+
+#navlist {
+  position: absolute;
+  left: 36px;
+  top: 100px;
+  width: 120px;
+}
+
+#navlist ul {
+  margin: 0; /*removes indent IE and Opera*/
+  padding: 0; /*removes indent Mozilla and NN7*/
+  list-style-type: none; /*turns off display of bullet*/
+  font-size: .9em;
+}
+
+
+#navlist li {
+  margin: 0;
+}
+
+#navlist a {
+  color: #000000;
+  text-decoration: none;
+}
+
+#navlist a:hover, #navlist a:active,
+#uberlink a:link, #uberlink a:visited,
+#uberlink a:hover, #uberlink a:active {
+  text-decoration: underline
+}
