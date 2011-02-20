@@ -114,7 +114,6 @@ public class AudioDecoder implements Runnable {
 	    
 	    try {
 	        AudioFormat audioFormat;
-	        
 	        /*
 	         * The decoder buffer might be (nearly) empty here. This can 
 	         * cause the mp3 decoders to NPE, so lets spin to make sure
@@ -123,11 +122,11 @@ public class AudioDecoder implements Runnable {
 	        int maxSpin = 5;
 	        while (--maxSpin > 0 && decoderBuffer.available() < 1024) {
 	            try {
-                    Thread.sleep(100);
-                } catch (InterruptedException e1) {
-                }
-	        }
-	        
+		      Thread.sleep(100);
+                    } catch (InterruptedException e1) {
+                      }
+		}
+
 	        /*
 	         * We need to use the mp3 decoder getInputStream to find out what audio
 	         * format is used in the mp3.
@@ -137,17 +136,17 @@ public class AudioDecoder implements Runnable {
 	         */
 	        if (decoderBuffer.getAudioFormat().getEncoding() == MPEG1L3) {
                 String mp3decoder = Config.getProperty("audio.mp3decoder");
-                
+
                 Class mp3fileReaderClass = Class.forName(((String[]) MP3_DECODERS.get(mp3decoder))[0]);
                 AudioFileReader fileReader = (AudioFileReader) mp3fileReaderClass.newInstance();
-                
-                audioInputStream = fileReader.getAudioInputStream(new BufferedInputStream(decoderBuffer));
-		        audioFormat = audioInputStream.getFormat();
+
+		      audioInputStream = fileReader.getAudioInputStream(new BufferedInputStream(decoderBuffer));
+		      audioFormat = audioInputStream.getFormat();
 	        }	        
 	        else {
 	            audioFormat = decoderBuffer.getAudioFormat();	        
 	            audioInputStream = new AudioInputStream(decoderBuffer, audioFormat,
-	                    AudioSystem.NOT_SPECIFIED);
+                    AudioSystem.NOT_SPECIFIED);
 	        }	        
 	        
 	        /*
@@ -339,7 +338,8 @@ public class AudioDecoder implements Runnable {
 			    logger.debug("decoder flushing output buffer readPtr="+outputBuffer.getReadCount()+" writePtr="+outputBuffer.getWriteCount()+" ptr="+outputBufferPtr);
 			    outputBuffer.flush(outputBufferPtr);
 			}
-			
+
+			outputBuffer.sendEvent( new AudioEvent(outputBuffer, AudioEvent.BUFFER_DECODER_STOPPED));
 			logger.debug("decoder stopped");
 		} catch (Exception e) {
 			logger.warn("player thread exception ", e);
@@ -347,7 +347,7 @@ public class AudioDecoder implements Runnable {
 	}
 
     
-    private int slowStart = 4096;
+    private int slowStart = 2048;
     
     
 	private int decodeFrame() throws IOException {

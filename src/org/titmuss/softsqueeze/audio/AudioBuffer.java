@@ -140,7 +140,7 @@ public class AudioBuffer extends InputStream {
 	 */
 	public synchronized void addReadEvent(long offset, AudioEvent event) {
 	    long readPos = writePtr + offset;
-	    
+
 	    List events = (List) readEvents.get(new Long(readPos));
 	    if (events == null) {
 	        events = new ArrayList();
@@ -148,6 +148,12 @@ public class AudioBuffer extends InputStream {
 	    }
 	    events.add(event);
 	}
+
+	public synchronized void sendEvent( AudioEvent event) {
+		for (Iterator i = listeners.iterator(); i.hasNext();)
+			((AudioBufferListener) i.next()).bufferEvent(event);
+	}
+
 	
 	/**
 	 * Set the buffer to loop once the buffer is closed.
@@ -179,14 +185,14 @@ public class AudioBuffer extends InputStream {
     /**
      * @return Returns the total number of bytes read from the buffer.
      */
-    public synchronized long getReadCount() {
+    public long getReadCount() {
         return readPtr;
     }
     
     /**
      * @return Returns the total number of bytes written to the buffer.
      */
-    public synchronized long getWriteCount() {
+    public  long getWriteCount() {
         return writePtr;
     }
 	
@@ -196,7 +202,7 @@ public class AudioBuffer extends InputStream {
 	public synchronized int getBufferSize() {
 		return (int)bufferSize;
 	}
-	
+
 	public synchronized int available() throws IOException {
 		int avail = (int)(writePtr - readPtr);
 		
@@ -207,7 +213,7 @@ public class AudioBuffer extends InputStream {
 	
 	public synchronized int freeSpace() {
 		int free = (int)(bufferSize - writePtr + readPtr);
-		
+
 		logger.debug("free R=" + readPtr + " W=" + writePtr + " F=" + free);
 		return free;
 	}
@@ -286,8 +292,8 @@ public class AudioBuffer extends InputStream {
 			    Long writePos = (Long)writeEvents.firstKey();
 			    if (writePtr < writePos.longValue())
 			        break;
-			    
-			    List events = (List) writeEvents.remove(writePos);
+
+    		    	    List events = (List) writeEvents.remove(writePos);
 			    for (Iterator j = events.iterator(); j.hasNext(); ) {
 			        AudioEvent event = ((AudioEvent)j.next());
 
@@ -350,7 +356,7 @@ public class AudioBuffer extends InputStream {
 		    Long writePos = (Long)writeEvents.firstKey();
 		    if (writePtr < writePos.longValue())
 		        break;
-		    
+    
 		    List events = (List) writeEvents.remove(writePos);
 		    for (Iterator j = events.iterator(); j.hasNext(); ) {
 		        AudioEvent event = ((AudioEvent)j.next());
@@ -365,6 +371,7 @@ public class AudioBuffer extends InputStream {
 	}
 
 	public int read() throws IOException {
+
 		byte b[] = new byte[1];
 		int ok = read(b, 0, 1);
 		return (ok < 0) ? -1 : b[0];
@@ -379,7 +386,7 @@ public class AudioBuffer extends InputStream {
 		while (size == 0) {
 		    if (loopBuffer && closed && readPtr == writePtr) {
 		        readPtr = loopPtr;
-
+ 
 				for (Iterator i = listeners.iterator(); i.hasNext();)
 					((AudioBufferListener) i.next()).bufferEvent(new AudioEvent(this, AudioEvent.BUFFER_REPEAT));
 				break;
@@ -387,9 +394,9 @@ public class AudioBuffer extends InputStream {
 		    
 			if (!underrun && readPtr == writePtr) {
 				logger.debug("audio buffer underrun");
+				underrun = true;
 				for (Iterator i = listeners.iterator(); i.hasNext();)
 					((AudioBufferListener) i.next()).bufferEvent(new AudioEvent(this, AudioEvent.BUFFER_UNDERRUN));
-				underrun = true;
 			}
 
 			if (closed)
@@ -436,7 +443,7 @@ public class AudioBuffer extends InputStream {
 		    Long readPos = (Long)readEvents.firstKey();
 		    if (readPtr < readPos.longValue())
 		        break;
-		    
+    
 		    List events = (List) readEvents.remove(readPos);
 		    for (Iterator j = events.iterator(); j.hasNext(); ) {
 		        AudioEvent event = ((AudioEvent)j.next());
@@ -449,7 +456,7 @@ public class AudioBuffer extends InputStream {
 		
 		return n;
 	}
-	
+
 	public synchronized long skip(long n) throws IOException {
 		int num = Math.min(available(), (int) n);
 		readPtr += num;

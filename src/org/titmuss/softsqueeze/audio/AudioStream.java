@@ -85,7 +85,7 @@ public class AudioStream implements Runnable {
     }
     
     public void run() {
-		logger.debug("audio stream started");
+        logger.debug("audio stream started"); 
 		
         try {            
             int n = 0;
@@ -131,11 +131,9 @@ public class AudioStream implements Runnable {
             // usually socket closed
             logger.debug("Exception in AudioStream", e);
         }
-
         try {
             playing = false;
             audioBuffer.close();
-
             logger.debug("audio stream closed");
         } catch (IOException e1) {
         }        

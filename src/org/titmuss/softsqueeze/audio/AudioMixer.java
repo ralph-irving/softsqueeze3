@@ -113,6 +113,7 @@ public class AudioMixer implements Runnable, AudioBufferListener {
     private int slowStart = 0;
 
 	private int skipFrames = 0;
+   private final static int SLOW_START_SIZE = 2048;
     
 	
 	/**
@@ -256,7 +257,7 @@ public class AudioMixer implements Runnable, AudioBufferListener {
 	 * now be played.
 	 */
 	public synchronized void play(long atTime) {
-	    if (line.isRunning())
+	    if (line.isRunning()) 
 	        return;
 	    
 	    logger.debug("play line inState=" + inState);
@@ -309,7 +310,7 @@ public class AudioMixer implements Runnable, AudioBufferListener {
 	 * @throws IOException
 	 */
 	public synchronized void flush() throws IOException {
-	    if (inState != PLAY && inState != PAUSE)
+	    if (inState != PLAY && inState != PAUSE) 
 	        return;
 	    
 	    logger.debug("flush line inState=" + inState);
@@ -328,7 +329,7 @@ public class AudioMixer implements Runnable, AudioBufferListener {
 	}
 
 	public synchronized void drain() {
-	    if (inState != PLAY)
+	    if (inState != PLAY) 
 	        return;
 	    
 	    logger.debug("drain line inState=" + inState);
@@ -368,25 +369,31 @@ public class AudioMixer implements Runnable, AudioBufferListener {
     				line.stop();
     				if (visualizer != null)
     				    visualizer.pause();
-    				
-    				synchronized (this) {
-    				    inState = PAUSE;
-    				    notifyAll();
-    				
+//
+//				Need two while loops so that flushsample is outside synchronized otherwise deadlocks happen
+				    synchronized (this) {
+				      inState = PAUSE;
+				      notifyAll();
+				    }
+
+    				while (toState != PLAY) {
+				    synchronized (this) {
+ 				
     				    /* spin until player is unpaused */
-    					logger.debug("audio mixer paused (waiting)");
     					while (toState != PLAY) {
     					    try {
     					        wait();
     					    }
     					    catch (InterruptedException e) {
+					      break;
     					    }
-    					    
     					    /* flush can be called during a pause */
-    					    if (toState == FLUSH)
-    					        flushSamples();
     					}
-    					
+				    }	
+				    if (toState == FLUSH)
+    				       flushSamples();
+				}
+    				synchronized (this) {
     					inState = PLAY;
     					notifyAll();
     				}
@@ -394,7 +401,7 @@ public class AudioMixer implements Runnable, AudioBufferListener {
     				logger.debug("audio mixer playing available="+audioBuffer.available());
     				/* about to play, audio line started by play() */
     				bufDuration = 0;
-    				slowStart = 4096;
+    				slowStart = SLOW_START_SIZE;
     				// line.start();
     				if (visualizer != null)
     				    visualizer.play();
@@ -431,6 +438,7 @@ public class AudioMixer implements Runnable, AudioBufferListener {
     		logger.debug("audio mixer stopped");
     
     		/* close the audio line */
+		line.stop();
     		line.flush();
     		line.close();
     		
@@ -448,6 +456,8 @@ public class AudioMixer implements Runnable, AudioBufferListener {
         
         line.stop();
         line.flush();
+        line.start();
+    
         bufLen = 0;
 		skipFrames = 0;
         audioBuffer.flush();

@@ -537,9 +537,9 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
 	        audioStream = new AudioStream(audioInputStream, decoderBuffer, metaint);
 	        audioDecoder = new AudioDecoder(decoderBuffer, outputBuffer, replayGain);
 	        
-	        audioDecoder.play();
-	        
 	        state = BUFFERING;
+	        audioDecoder.play();
+
 	        lock.notifyAll();
 	    }
 	}
@@ -572,7 +572,7 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
             
             if (autostart)
                 sendStatus("STMf");
-            
+
             state = DISCONNECTED;
             lock.notifyAll();
         }
@@ -596,7 +596,7 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
             audioStream = null;
             decoderBuffer = null;
             audioDecoder = null;
-            
+
             state = PLAYING; // playout existing track
             lock.notifyAll();
         }
@@ -670,7 +670,6 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
 	        
 	        audioMixer.play(atJiffies != 0 ? squeeze.getProtocol().getEpoch() + atJiffies : 0);
 	        // sendStatus("STMa"); /* not used by Squeezebox2 */ 
-	        
 	        state = PLAYING;
 	        lock.notifyAll();		
 	    }
@@ -686,7 +685,7 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
 	    synchronized (lock) {
 	        audioMixer.play(0);
 	        sendStatus("STMr");
-	        
+
 	        state = PLAYING;
 	        lock.notifyAll();
 	    }
@@ -828,11 +827,7 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
 	        case AudioEvent.BUFFER_UNDERRUN:
 	            vlogger.debug("buffer underrun; audioStream="+audioStream+" isOpen="+((audioStream!=null && audioStream.isOpen())?"open":"closed"));
 	            
-	            if (buffer == decoderBuffer 
-	                    && (audioStream == null || !audioStream.isOpen()))
-	                sendStatus("STMd");
-	            
-	            else if (buffer == outputBuffer 
+	            if (buffer == outputBuffer 
 	                    && (audioStream == null || !audioStream.isOpen())) {
 	                audioMixer.drain();
 	                sendStatus("STMu");
@@ -849,13 +844,20 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
 	        break;
 
 	        case AudioEvent.BUFFER_CLOSED:
-	            if (buffer == decoderBuffer) {
+ 	            if (buffer == decoderBuffer) {
 	                squeeze.getProtocol().sendDsco(0); // connection closed normally
 	            }
+
 	            if (buffer == decoderBuffer && state == BUFFERING) {
 		            logger.debug("audio stream closed while buffering, starting playback");
 	                start(0);
 	            }
+	        break;
+	        case AudioEvent.BUFFER_DECODER_STOPPED:
+	            if (buffer == outputBuffer) {
+			  sendStatus("STMd");
+	            }
+
 	        break;
 	        
 	        case AudioEvent.BUFFER_METADATA:
@@ -887,8 +889,6 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
 	private char parseStream(byte buf[], int start, int len) {
 		char cmd = (char)buf[start];
 		byte autostartFlag = buf[start + 1];
-		autostart = (autostartFlag == '1' || autostartFlag == '3');
-		directStream = (autostartFlag == '2' || autostartFlag == '3' || autostartFlag == '4');		
 		String spdifEnable = new String(buf, start + 8, 1);
 		transitionPeriod =   buf[start + 9];
 		transitionType   =   buf[start + 10];
@@ -902,6 +902,8 @@ public class Player implements ProtocolListener, AudioBufferListener, ConfigList
 				pcmSampleRate      = buf[start + 4] - '0';
 				pcmChannels        = buf[start + 5] - '0';
 				pcmEndian          = "0".equals(new String(buf, start + 6, 1));
+				autostart = (autostartFlag == '1' || autostartFlag == '3');
+				directStream = (autostartFlag == '2' || autostartFlag == '3' || autostartFlag == '4');		
 				autostartThreshold = (buf[start + 7] & 0xFF) * 1024;
 				replayGain         = Protocol.unpackFixedPoint(buf, start + 14);
 				if (replayGain == 0.0f)

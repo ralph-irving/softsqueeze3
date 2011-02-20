@@ -44,6 +44,7 @@ public class AudioEvent extends java.util.EventObject {
 
     public final static int BUFFER_SET_REPLAYGAIN = 8;
 
+    public final static int BUFFER_DECODER_STOPPED = 9;
 
     private int id;
     
