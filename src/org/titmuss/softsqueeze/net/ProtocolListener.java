@@ -24,7 +24,7 @@ package org.titmuss.softsqueeze.net;
  * @author richard
  *
  * ProtocolListeners are called when commands are received from the
- * SqueezeCenter. 
+ * Squeezebox Server. 
  */
 public interface ProtocolListener {
 	/**

@@ -208,7 +208,7 @@ public class Protocol {
 	}
 
 	/**
-	 * Send a KNOB command to the SqueezeCenter.
+	 * Send a KNOB command to the Squeezebox Server.
 	 * @param sync 
 	 */
 	public void sendKnob(int position, int sync) {

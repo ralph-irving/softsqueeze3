@@ -164,7 +164,7 @@ public class Softsqueeze implements ConfigListener, ProtocolListener {
 			// Ask for settings if we have no IP address
 			if (Config.getSlimServerAddress().equals("")) {
 			    if (Config.isHeadless()) {
-			        System.err.println("Please include the SqueezeCenter address on the command line. e.g. -Dslimserver=localhost");
+			        System.err.println("Please include the Squeezebox Server address on the command line. e.g. -Dslimserver=localhost");
 			        System.exit(-1);
 			    }
 			    else {
@@ -356,7 +356,7 @@ public class Softsqueeze implements ConfigListener, ProtocolListener {
 			
 			int min = compareVersion(MIN_SLIMSERVER_VERSION, v);
 			if (min > 0) {
-			    ConfigPopup.showErrorDialog("You have connected to SqueezeCenter "+v+", but this version of SoftSqueeze\n requires SqueezeCenter "+MIN_SLIMSERVER_VERSION+" or greater. Please upgrade your SqueezeCenter.", "Please upgrade SqueezeCenter");
+			    ConfigPopup.showErrorDialog("You have connected to Squeezebox Server "+v+", but this version of SoftSqueeze\n requires Squeezebox Server "+MIN_SLIMSERVER_VERSION+" or greater. Please upgrade your Squeezebox Server.", "Please upgrade Squeezebox Server");
 			    openConfigDialog();
 			    return;
 			}
@@ -365,7 +365,7 @@ public class Softsqueeze implements ConfigListener, ProtocolListener {
 				ConfigPopup.showOnceDialog(
 						"checkslimserver"+MAX_SLIMSERVER_VERSION,
 						"",
-						"This version of SoftSqueeze is optimised for SqueezeCenter "+MAX_SLIMSERVER_VERSION+" but you are running SqueezeCenter "+v+".\n",
+						"This version of SoftSqueeze is optimised for Squeezebox Server "+MAX_SLIMSERVER_VERSION+" but you are running Squeezebox Server "+v+".\n",
 						"Some problems may occur.");
 
 			}

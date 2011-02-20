@@ -222,13 +222,13 @@ public class ConfigDialog implements ItemListener {
 		JPanel basicPanel = new JPanel(gridbag);
 		basicPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		tabbedPane.add("Basic", basicPanel);
-		add(basicPanel, "SqueezeCenter Hostname", slimserverAddr1);
+		add(basicPanel, "Squeezebox Server Hostname", slimserverAddr1);
 		separator(basicPanel);
 		add(basicPanel, "SoftSqueeze Skin", softsqueezeSkin1);
 		separator(basicPanel);
 		add(basicPanel, "Java version", javaVersion);
 		add(basicPanel, "SoftSqueeze version", softsqueezeVersion);
-		add(basicPanel, "SqueezeCenter version", slimserverVersion);
+		add(basicPanel, "Squeezebox Server version", slimserverVersion);
 		padding(basicPanel);
 
 		skinPanel = new JPanel(gridbag);
@@ -259,9 +259,9 @@ public class ConfigDialog implements ItemListener {
 		JPanel netPanel = new JPanel(gridbag);
 		netPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		tabbedPane.add("Networking", netPanel);
-		add(netPanel, "SqueezeCenter Hostname", slimserverAddr2);
-		add(netPanel, "SqueezeCenter HTTP Port", slimserverHttpPort);
-		add(netPanel, "SqueezeCenter SlimProto Port", slimserverSlimPort);
+		add(netPanel, "Squeezebox Server Hostname", slimserverAddr2);
+		add(netPanel, "Squeezebox Server HTTP Port", slimserverHttpPort);
+		add(netPanel, "Squeezebox Server SlimProto Port", slimserverSlimPort);
 		separator(netPanel);
 		add(netPanel, "SoftSqueeze MAC Address", softsqueezeMacAddress);
 		add(netPanel, "Tcp Window Size", tcpWindowSize);
@@ -471,7 +471,7 @@ public class ConfigDialog implements ItemListener {
 		sshTunnel.setSelected(Config.getBooleanProperty("sshtunnel"));
 		sshPort.setText(Config.getProperty("sshport"));
 		sshServerAddr.removeAllItems();
-		sshServerAddr.addItem("[ On SqueezeCenter ]");
+		sshServerAddr.addItem("[ On Squeezebox Server ]");
 		if (Config.getProperty("sshserver").equals(Config.getProperty("slimserver"))) {
 		    sshServerAddr.setSelectedIndex(0);
 		}

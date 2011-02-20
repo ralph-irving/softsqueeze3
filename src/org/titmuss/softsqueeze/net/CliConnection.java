@@ -85,7 +85,7 @@ public class CliConnection {
     }
     
     /**
-     * Connect the cli to the SqueezeCenter at the given address and port.
+     * Connect the cli to the Squeezebox Server at the given address and port.
      * 
      * @param addr
      * @param port
@@ -110,7 +110,7 @@ public class CliConnection {
 	}
 	
 	/**
-	 * Disconnect the cli from the SqueezeCenter.
+	 * Disconnect the cli from the Squeezebox Server.
 	 */
 	public void disconnect() throws IOException {
 	    synchronized (lock) {
@@ -123,14 +123,14 @@ public class CliConnection {
 	}
 	
 	/**
-	 * @return true if the cli is connected to the SqueezeCenter
+	 * @return true if the cli is connected to the Squeezebox Server
 	 */
 	public boolean isConnected() {
 	    return inState == CONNECTED;
 	}
 
 	/**
-	 * Queue a cli message to be sent to the SqueezeCenter, the listener is called with
+	 * Queue a cli message to be sent to the Squeezebox Server, the listener is called with
 	 * the response.
 	 * 
 	 * @param callback
@@ -242,7 +242,7 @@ public class CliConnection {
 	                socketOut.flush();
 
 	                /*
-	                 * The SqueezeCenter does not seem to respond well when multiple commands are queued.
+	                 * The Squeezebox Server does not seem to respond well when multiple commands are queued.
 	                 * Sometimes the replies go missing, so for now just send one command at a time.
 	                 */
 	                synchronized (lock) {

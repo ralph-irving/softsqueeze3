@@ -144,7 +144,7 @@ public class CliMessage {
     }
     
     /**
-     * Return the cli message as a string (ready to send to the SqueezeCenter).
+     * Return the cli message as a string (ready to send to the Squeezebox Server).
      */
     public String toString() {
         StringBuffer buf = new StringBuffer();
