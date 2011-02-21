@@ -113,8 +113,10 @@ public class AudioMixer implements Runnable, AudioBufferListener {
     private int slowStart = 0;
 
 	private int skipFrames = 0;
-   private final static int SLOW_START_SIZE = 2048;
-    
+   
+	private final static int SLOW_START_SIZE = 2048;
+	
+	private boolean useDb = true;
 	
 	/**
 	 * Create an audio mixer.
@@ -169,8 +171,23 @@ public class AudioMixer implements Runnable, AudioBufferListener {
 				logger.debug("Control: " + ctls[i]);
 		}
 		
-		gainControl = (FloatControl) (line.getControl(FloatControl.Type.MASTER_GAIN));
-		gainControl.setValue(dB);
+		if (line.isControlSupported(FloatControl.Type.MASTER_GAIN)) {
+			gainControl = (FloatControl) (line.getControl(FloatControl.Type.MASTER_GAIN));
+			gainControl.setValue(dB);
+			useDb = true;
+		} else if (line.isControlSupported(FloatControl.Type.VOLUME)) {
+			gainControl = (FloatControl) (line.getControl(FloatControl.Type.VOLUME));
+			gainControl.setValue((float)Math.pow(10.0, dB/20.0) * gainControl.getMaximum());
+			useDb = false;
+		}
+
+		if (logger.isDebugEnabled()) {
+			logger.debug("Volume Control: type=" + gainControl.getType() + ", min=" + gainControl.getMinimum() +
+					", max=" + gainControl.getMaximum() + ", precision=" + gainControl.getPrecision() + 
+					", updatePeriod=" + gainControl.getUpdatePeriod() + ", value=" + gainControl.getValue() +
+					", units=" + gainControl.getUnits() + ", minL=" + gainControl.getMinLabel() +
+					", midL=" + gainControl.getMidLabel() + ", maxL=" + gainControl.getMaxLabel());
+		}
 		
 		lineSize = line.getBufferSize();
         frameSize = audioFormat.getFrameSize();
@@ -192,13 +209,27 @@ public class AudioMixer implements Runnable, AudioBufferListener {
 	
 	
 	private void setVolume() {	    
-	    double gain = (leftLevel + rightLevel) / 2;
-	    gain *= replayGain;
+	    double gainPreRg = (leftLevel + rightLevel) / 2;
+	    double gainPostRg = gainPreRg * replayGain; 
 	    
-		dB = (float) (Math.log(gain) / Math.log(10.0) * 20.0);
-		gainControl.setValue(dB);
+		dB = (float) (Math.log(gainPostRg) / Math.log(10.0) * 20.0);
 		
-	    logger.debug("gain=" + gain + " replayGain=" + replayGain + " dB=" + dB + " max=" + gainControl.getMaximum());
+		if (useDb) {
+			gainControl.setValue(dB);
+			if (logger.isDebugEnabled()) {
+				logger.debug("setVolume(): gain(pre)=" + gainPreRg + ", replayGain=" + replayGain + 
+						", gain(post)=" + gainPostRg + ", dB=" + dB + ", min=" + gainControl.getMinimum() + 
+						", max=" + gainControl.getMaximum());
+			}
+		} else {
+			float volume = (float)gainPostRg * gainControl.getMaximum(); 
+			gainControl.setValue(volume);
+			if (logger.isDebugEnabled()) {
+				logger.debug("setVolume(): gain(pre)=" + gainPreRg + ", replayGain=" + replayGain + 
+						", gain(post)=" + gainPostRg + ", dB=" + dB + ", volume=" + volume + 
+						", min=" + gainControl.getMinimum() + ", max=" + gainControl.getMaximum());
+			}
+		}
 	}
 	
 	public void setVisualizer(Visualizer newVisualizer) {
