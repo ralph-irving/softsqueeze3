@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <install4j version="3.2.5">
   <directoryPresets config="../../nativeskinwin32JAWT.dll" />
-  <application name="Softsqueeze" distributionSourceDir="" applicationId="0664-8868-6773-1691" mediaDir="../../media" mediaFilePattern="%SHORT_NAME%_%PLATFORM%%WITH_JRE%_%VERSION%" compression="6" lzmaCompression="false" keepModificationTimes="false" shortName="softsqueeze" publisher="Richard Titmuss" publisherWeb="http://softsqueeze.sourceforge.net" version="CVS_BUILD" allPathsRelative="true" backupOnSave="false" autoSave="false" macSignature="????" javaMinVersion="1.4" javaMaxVersion="" allowBetaVM="false">
+  <application name="Softsqueeze" distributionSourceDir="" applicationId="0664-8868-6773-1691" mediaDir="../../media" mediaFilePattern="%SHORT_NAME%_%PLATFORM%%WITH_JRE%_%VERSION%" compression="6" lzmaCompression="false" keepModificationTimes="false" shortName="softsqueeze" publisher="Ralph Irving" publisherWeb="http://softsqueeze.sourceforge.net" version="CVS_BUILD" allPathsRelative="true" backupOnSave="false" autoSave="false" macSignature="????" javaMinVersion="1.8" javaMaxVersion="" allowBetaVM="false">
     <searchSequence>
-      <registry />
       <envVar name="JAVA_HOME" />
       <envVar name="JDK_HOME" />
+      <registry />
     </searchSequence>
     <variables />
   </application>
@@ -187,6 +187,10 @@
       <customScriptLines />
     </linuxRPM>
   </mediaSets>
-  <buildIds buildAll="true" />
+  <buildIds buildAll="false">
+    <mediaSet refId="3" />
+    <mediaSet refId="23" />
+    <mediaSet refId="27" />
+  </buildIds>
 </install4j>
 
