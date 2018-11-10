@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-  <title>Softsqueeze 3.8</title>
+  <title>Softsqueeze 3.9</title>
   <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -29,8 +29,8 @@
 <p>
 Softsqueeze is a music player for your PC that works with the <a href="http://www.slimdevices.com/pi_features.html">SqueezeCenter software</a>.  It complements the Boom, Duet, Transporter, Squeezebox and Slimp3 hardware music players developed by <a href="http://www.slimdevices.com">Slim Devices</a>.<br><br>Supports <b>synchronization</b> with hardware players and <b>remote streaming</b> over the Internet using ssh tunneling.<br><br>Developed in Java, allowing this useful application to work with Windows PCs, OS X and Unix systems.<br><br>Emulates most of the digital music players and uses the TCP based slim protocol, allowing use across the Internet and through firewalls/NAT routers.
 </p>
-<b><a href="download.html">Download Version 3.8 Now!</a></b>
-<p>Version 3.8 includes:
+<b><a href="download.html">Download Version 3.9.2 Now!</a></b>
+<p>Version 3.9 includes:
 </p>
 <ul>
   <li>Audio Playback
@@ -38,9 +38,10 @@ Softsqueeze is a music player for your PC that works with the <a href="http://ww
       <li>Native playback of Flac, MP3, WAV and AIFF audio.</li>
       <li>Support for Ogg Vorbis, WMA and AAC by transcoding in SqueezeCenter.</li>
       <li>Gapless playback for most audio formats.</li>
-      <li>Synchronization with Squeezebox2, Squeezebox and Slimp3 (requires Java 1.5) </li>
-      <li>Pause, volume control and mute buttons. </li>
-      <li>Supports <a href="faq.html#directsound">Windows Direct Sound</a> on a Windows PC. </li>
+      <li>Synchronization with Squeezebox2, Squeezebox and Slimp3 (requires Java 1.8)</li>
+      <li>Pause, volume control and mute buttons.</li>
+      <li>Supports <a href="faq.html#directsound">Windows Direct Sound</a> on a Windows PC.</li>
+      <li>Supports the pulseaudio mixer on a Linux PC.</li>
     </ul>
   </li>
   <li>Squeezebox2 Graphics Support
@@ -48,6 +49,7 @@ Softsqueeze is a music player for your PC that works with the <a href="http://ww
       <li>Emulation of the new 320x32 graphic display.</li>
       <li>Full support for all Squeezebox fonts.</li>
       <li>Spectrum Analyzer, VU meters.</li>
+      <li>Fixes display issues on MacOS.</li>
     </ul>
   </li>
   <li>Skins
@@ -60,12 +62,8 @@ Softsqueeze is a music player for your PC that works with the <a href="http://ww
       <li>Also supports <a href="faq.html#headless">headless</a> operation </li>
     </ul>
   </li>
+  <li>Fixed a problem with SSH tunnel feature.</li>
   <li>Music search and playlist editor</li>
-  <!--
-  <ul>
-    <li>Available soon ...</li>
-  </ul>
-  -->
   <li>Emulation of Slim IR Remote control
     <ul>
       <li>Button auto repeat (for example press and hold pause stop's the player) </li>
@@ -74,7 +72,7 @@ Softsqueeze is a music player for your PC that works with the <a href="http://ww
   </li>
   <li>Slim Protocol
     <ul>
-      <li>Supports Slim Server version 6.0 upwards. </li>
+      <li>Supports Slim Server version 7.7 upwards. </li>
       <li>Support for password encrypted servers. </li>
       <li>Auto reconnection to Slim Server when connection is lost. </li>
       <li>Built-in <a href="ssh.html">ssh tunneling</a> support for remote connections. </li>
@@ -91,7 +89,11 @@ Softsqueeze is a music player for your PC that works with the <a href="http://ww
 
 <p>These alternative software players can be used to listen to your music stored on your SqueezeCenter server: </p>
 <ul>
-  <li><a href="http://wiki.slimdevices.com/index.php/SqueezeSlave">squeezeslave</a> is a light weight streaming audio player written in C for Windows, OS X, Linux and Solaris computers.</li>
+  <li><a href="http://wiki.slimdevices.com/index.php/Squeezelite">squeezelite</a> supports high resolution playback, gapless, crossfade and most other squeezebox playback features.</li>
+  <li><a href="https://forums.slimdevices.com/showthread.php?108550-Announce-Squeezelite-X">squeezelite-x</a> combines the squeezelite software player with a dedicated imbedded web interface, all accessible from the windows tray.</li>
+  <li><a href="http://wiki.slimdevices.com/index.php/Squeezeplay">squeezeplay</a> is the desktop version of the Jive / Squeezebox Controller, Touch and Radio software.</li>
+  <li><a href="https://sourceforge.net/projects/lmsclients/files/jivelite/">jivelite</a> is a squeezebox jive controller application.</li>
+  <li><a href="http://wiki.slimdevices.com/index.php/SqueezeSlave">squeezeslave</a> is a light weight streaming audio player.</li>
   <li><a href="http://www.ex-parrot.com/%7Epdw/slimp3slave/">slimp3slave</a> is a slimp3 emulator for Unix (Linux/Solaris/etc) computers. </li>
   <li><a href="http://kslimp3.sourceforge.net/">Kslimp3</a> is a KDE slimp3 emulator that works on Unix computers. This program integrates into the KDE desktop. </li>
   <li><a href="http://www.pdos.lcs.mit.edu/%7Edecouto/slimp3/">TripleFat</a> is a Java client that emulates a slimp3 display and remote control.  This does not play music. </li>
