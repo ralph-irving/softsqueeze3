@@ -23,7 +23,7 @@
         <mkdir dir="build"/>
 
 	<!-- compile application sources -->
-        <javac debug="true" target="1.8" includeantruntime="false" deprecation="true" destdir="build" srcdir="src" classpath="lib/jnlp.jar;lib/ostermillerutils_1_03_00.jar;lib/log4j-1.2.8.jar;lib/tritonus_share.jar;lib/mp3spi1.9.5.jar;lib/jl1.0.1.jar;lib/jflac-1.2.jar;lib/jogg-0.0.7.jar;lib/jorbis-0.0.15.jar;lib/vorbisspi1.0.3.jar;lib/jsch-0.1.54.jar;lib/junit.jar;lib/nativeskin.jar" />
+        <javac debug="true" target="1.8" includeantruntime="false" deprecation="true" destdir="build" srcdir="src" classpath="lib/jnlp.jar;lib/ostermillerutils_1_03_00.jar;lib/log4j-1.2.17.jar;lib/tritonus_share.jar;lib/mp3spi1.9.5.jar;lib/jl1.0.1.jar;lib/jflac-1.2.jar;lib/jogg-0.0.7.jar;lib/jorbis-0.0.15.jar;lib/vorbisspi1.0.3.jar;lib/jsch-0.1.54.jar;lib/junit.jar;lib/nativeskin.jar" />
         <!-- Copy application resources -->
         <copy todir="build">
             <fileset dir="resources" excludes="**/*.java,**/*.psd"/>
@@ -42,7 +42,7 @@
             <manifest>
                 <attribute name="Built-By" value="${user.name}"/>
                 <attribute name="Main-Class" value="org.titmuss.softsqueeze.Application"/>
-                <attribute name="Class-Path" value="slimdevices.jar lib/jnlp.jar lib/log4j-1.2.8.jar lib/tritonus_share.jar lib/mp3spi1.9.5.jar lib/jl1.0.1.jar lib/jflac-1.2.jar lib/jogg-0.0.7.jar lib/jorbis-0.0.15.jar lib/vorbisspi1.0.3.jar lib/nativeskin.jar lib/jsch-0.1.54.jar lib/xml-apis.jar lib/dtd-xercesImpl.jar"/>
+                <attribute name="Class-Path" value="slimdevices.jar lib/jnlp.jar lib/log4j-1.2.17.jar lib/tritonus_share.jar lib/mp3spi1.9.5.jar lib/jl1.0.1.jar lib/jflac-1.2.jar lib/jogg-0.0.7.jar lib/jorbis-0.0.15.jar lib/vorbisspi1.0.3.jar lib/nativeskin.jar lib/jsch-0.1.54.jar lib/xml-apis.jar lib/dtd-xercesImpl.jar"/>
             </manifest>
         </jar>
     </target>
@@ -65,7 +65,7 @@
 
 	<!-- sign library files -->
 	<signjar jar="lib/jnlp.jar" signedjar="dist/common/lib/jnlp.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
-	<signjar jar="lib/log4j-1.2.8.jar" signedjar="dist/common/lib/log4j-1.2.8.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
+	<signjar jar="lib/log4j-1.2.17.jar" signedjar="dist/common/lib/log4j-1.2.17.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
 	<signjar jar="lib/tritonus_share.jar" signedjar="dist/common/lib/tritonus_share.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
 	<signjar jar="lib/mp3spi1.9.5.jar" signedjar="dist/common/lib/mp3spi1.9.5.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
 	<signjar jar="lib/jl1.0.1.jar" signedjar="dist/common/lib/jl1.0.1.jar" keystore="${keystore}" alias="${alias}" storepass="${secret}" />
@@ -185,7 +185,7 @@
                 <pathelement location="."/>
             </sourcepath>
             <classpath>
-                <pathelement location="lib/log4j-1.2.8.jar"/>
+                <pathelement location="lib/log4j-1.2.17.jar"/>
             </classpath>
         </javadoc>
     </target>

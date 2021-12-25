@@ -5,7 +5,7 @@
 	<classpathentry kind="lib" path="lib/dtd-xercesImpl.jar"/>
 	<classpathentry kind="lib" path="lib/jnlp.jar"/>
 	<classpathentry kind="lib" path="lib/jsch-0.1.54.jar"/>
-	<classpathentry kind="lib" path="lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="lib/ostermillerutils_1_03_00.jar"/>
 	<classpathentry kind="lib" path="lib/tritonus_share.jar"/>
 	<classpathentry kind="lib" path="lib/xml-apis.jar"/>
