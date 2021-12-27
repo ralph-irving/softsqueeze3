@@ -32,10 +32,11 @@
       <all-permissions/>
   </security>
   <resources>
-    <j2se version="1.4+"/>
+    <j2se version="1.8+"/>
     <jar href="SoftSqueeze.jar"/>
     <jar href="lib/log4j-1.2.17.jar"/>
     <jar href="lib/tritonus_share.jar"/>
+    <jar href="lib/mp3plugin-1.0.jar"/>
     <jar href="lib/mp3spi1.9.2.jar"/>
     <jar href="lib/jl1.0.jar"/>
     <jar href="lib/jflac-1.2.jar"/>
