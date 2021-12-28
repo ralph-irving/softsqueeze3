@@ -55,7 +55,7 @@ import com.l2fprod.gui.nativeskin.NativeSkin;
 public class Softsqueeze implements ConfigListener, ProtocolListener {
 	private static final Logger logger = Logger.getLogger("softsqueeze");
 
-	private static final String MIN_SLIMSERVER_VERSION = "7.9";
+	private static final String MIN_SLIMSERVER_VERSION = "7.5";
 
 	private static final String MAX_SLIMSERVER_VERSION = "9.9";
 	
